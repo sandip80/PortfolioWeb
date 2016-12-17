@@ -1,0 +1,205 @@
+/* Header */
+.large-header {
+	position: relative;
+	width: 100%;
+	background: #333;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+}
+
+.container .large-header {
+	background-image: url('../img/bg.jpg');
+	background-attachment: fixed;
+}
+
+.main-title {
+	position: absolute;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	color: #f9f1e9;
+	text-align: center;
+	top: 40%;
+}
+
+#sub-title-1 {
+	top: 30%;
+	font-size: 4em;
+}
+
+#sub-title-2 {
+	top: 50%;
+	font-size: 4em;
+}
+
+.main-btns {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 60%;
+	width: 100%;
+	text-align: center;
+}
+
+.main-btns li {
+	display: inline-block;
+	margin: 10px;
+	margin-top: 0px;
+}
+
+#mbutton1 {
+	border-color: #32CD32;
+	color: #32CD32;
+}
+
+#mbutton2 {
+	-webkit-box-shadow:inset 0px 0px 0px 2px #32CD32;
+	-moz-box-shadow:inset 0px 0px 0px 2px #32CD32;
+    box-shadow:inset 0px 0px 0px 2px #32CD32;
+}
+
+.main-btns a {
+	background: #32CD32;
+	transition-property: background, color, border-color;
+	transition-duration: 0.2s;
+	transition-timing-function: linear, ease-in;
+}
+
+#mbutton1:hover, #mbutton2:hover {
+	background: white;
+}
+
+#mbutton2:hover {
+	color: #32CD32;
+}
+
+#mbutton1:active, #mbutton2:active {
+	background: lightgray;
+	transition-duration: 0.01s; 
+}
+
+#mbutton1:focus, #mbutton2:focus {
+	background: lightgray;
+	color: #32CD32;
+}
+
+/*:hover, :focus, :active, and :target*/
+
+.container {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.container .main-title {
+	text-transform: uppercase;
+	font-size: 6em;
+	letter-spacing: 0.1em;
+}
+
+.main-title .thin {
+	font-weight: 200;
+}
+
+@media only screen and (max-width : 768px) {
+	.container .main-title {
+		font-size: 5em;
+	}
+
+	#sub-title-1 {
+		top: 32%;
+		font-size: 4em;
+	}
+
+	#sub-title-2 {
+		top: 48%;
+		font-size: 3.5em;
+	}
+}
+
+@media only screen and (max-width : 661px) {
+	.main-btns li {
+		display: block;
+	}
+
+	.main-btns a {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width : 580px) {
+	.container .main-title {
+		font-size: 4em;
+	}
+
+	#sub-title-1 {
+		top: 33%;
+		font-size: 3em;
+	}
+
+	#sub-title-2 {
+		top: 47%;
+		font-size: 2.5em;
+	}
+}
+
+@media only screen and (max-width : 440px) {
+	.container .main-title {
+		font-size: 3.5em;
+	}
+
+	#sub-title-1 {
+		top: 34%;
+		font-size: 2.5em;
+	}
+
+	#sub-title-2 {
+		top: 46%;
+		font-size: 2em;
+	}
+}
+
+@media only screen and (max-width : 371px) {
+	#sub-title-2 {
+		top: 50%;
+	}
+}
+
+@media only screen and (max-height : 500px) {
+	.container .main-title {
+		font-size: 3em;
+	}
+
+	#sub-title-1 {
+		top: 33%;
+		font-size: 2em;
+	}
+
+	#sub-title-2 {
+		top: 48%;
+		font-size: 1.5em;
+	}
+
+	.slider {
+		font-size: 2em;
+		bottom: 4%;
+	}
+}
+
+@media only screen and (max-width : 440px) {
+	.container .main-title {
+		font-size: 2.9em;
+	}
+
+	.slider {
+		font-size: 2em;
+	}
+}
+
+@media only screen and (max-height : 320px) {
+	.slider {
+		display: none;
+	}
+}
