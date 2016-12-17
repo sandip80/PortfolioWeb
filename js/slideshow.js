@@ -2,7 +2,7 @@
     var $ = require('jquery');
     var raf = require('raf');
 
-	var width, height, totalWidth, canvas, image, ctx, animatethis = true;
+	var width, height, canvas, image, ctx, animatethis = true;
 
 	// main
 	initCanvas();
@@ -48,7 +48,7 @@
     }
 
     var currentX1 = 0;
-    var currentX2 = width;
+    var currentX2 = window.innerWidth - 10;
 
     function draw() {
     	ctx.beginPath();

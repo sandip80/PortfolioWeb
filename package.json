@@ -2,6 +2,12 @@
   "name": "PortfolioWeb",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
+  "scripts": {
+    "modular": "browserify index.js -o ./js/bundle.js",
+    "compress": "uglifyjs ./js/bundle.js -o ./js/bundle.min.js",
+    "watch": "watchify index.js -o ./js/bundle.js"
+  },
   "dependencies": {
     "bootstrap": "^3.3.7",
     "create-react-app": "^1.0.2",
@@ -14,6 +20,7 @@
     "url": "https://github.com/sandip80/PortfolioWeb.git"
   },
   "devDependencies": {
-    "browserify": "^13.1.1"
+    "browserify": "^13.1.1",
+    "watchify": "^3.8.0"
   }
 }

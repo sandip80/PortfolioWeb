@@ -1,5 +1,4 @@
 (function() {
-    var $ = require('jquery');
     var raf = require('raf');
 
     var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
