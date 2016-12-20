@@ -4,22 +4,30 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "modular": "browserify index.js -o ./js/bundle.js",
+    "modular": "browserify index.js -o ./js/bundle.js -t [ babelify --presets [ es2015 react ] ]",
     "compress": "uglifyjs ./js/bundle.js -o ./js/bundle.min.js",
-    "watch": "watchify index.js -o ./js/bundle.js"
+    "watch": "watchify index.js -o ./js/bundle.js -t [ babelify --presets [ es2015 react ] ] -v"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
     "create-react-app": "^1.0.2",
     "d3": "^4.4.0",
     "jquery": "^3.1.1",
-    "raf": "^3.3.0"
+    "raf": "^3.3.0",
+    "react": "^15.4.1",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.1",
+    "react-parallax": "^1.2.2",
+    "react-within-viewport": "^1.2.4"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sandip80/PortfolioWeb.git"
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
     "browserify": "^13.1.1",
     "watchify": "^3.8.0"
   }

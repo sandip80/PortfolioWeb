@@ -1,28 +1,87 @@
-.projects {
+@media only screen and (min-width: 800px) {
+	.project-tab {
+		width: 250px;
+		height: 250px;
+		border: 0px solid black;
+		border-radius: 30px;
+		background-color: black;
+		position: relative;
+		overflow: hidden;
+		margin: 20px;
+	}
 
+	.phone-link {
+		display: none;
+	}
+
+	.project-text {
+		position: absolute;
+		width: 250px;
+		height: 250px;
+		background-color: rgba(0, 0, 0, 0.3);
+		top: 0px;
+		padding: 10px;
+		color: #fff;
+	}
+
+	.project-link {
+		position: absolute;
+		padding: 10px !important;
+		bottom: 10px;
+		right: 26.5%;
+		border-color: #32CD32 !important;
+		color: #32CD32 !important;
+	}
+
+	.project-description {
+		margin-top: 20px;
+	}
+
+	.project-link:hover {
+		background-color: white;
+		transition: 0.5s;
+	}
+
+	.project-hr {
+		background-color: white;
+		height: 2.5px;
+		width: 30%;
+	}
+
+	.phone-text {
+		display: none;
+	}
 }
 
-.proj {
-	width: 250px;
-	height: 250px;
-	background-size: 75%;
+.project-tab {
 	display: inline-block;
-	position: relative;
-	margin: 20px;
-	overflow: hidden;
-	border: 0px solid black;
-	border-radius: 30px;
 }
 
-.proj-descp {
-	position: absolute;
-	top: 10%;
+.project-viewer {
+	text-align: center;
 }
 
-@media only screen and (max-width : 768px) {
-	.proj {
+@media only screen and (max-width: 800px) {
+	.project-image {
+		border: 0px solid black;
+		border-radius: 10px;
+	}
+
+	.project-normal-image {
+		display: none;
+	}
+
+	.project-tab {
 		width: 100px;
 		height: 100px;
-		border-radius: 10px;
+		margin: 10px;
+	}
+
+	.project-text {
+		display: none !important;
+	}
+
+	.phone-text {
+		display: block;
 	}
 }
