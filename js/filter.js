@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 import { Parallax, Background } from 'react-parallax';
+import VisibilitySensor from 'react-visibility-sensor';
 
 var ProjectNode = React.createClass({
 	getInitialState: function() {
@@ -52,10 +53,65 @@ var ProjectNode = React.createClass({
     }
 });
 
-class ProjectViewer extends React.Component {
-	render() {
-		var programmingLanguages = ["All", "Java", "C++", "C", "Javascript"];
-        var projects = [
+var ProjectViewer = React.createClass({
+	getInitialState: function () {
+		return(
+			{
+				activeFilter: {
+					"All": true,
+					"Java": false,
+					"C++": false,
+					"C": false,
+					"Javascript": false,
+					"VR": false
+				},
+				inViewPort: this.props.onChange
+			}
+		);
+    },
+
+	handleClick: function(value) {
+		this.setState(state => {
+			if (value != "All") {
+                state.activeFilter["All"] = false;
+			} else {
+				state.activeFilter["Java"] = false;
+                state.activeFilter["C++"] = false;
+                state.activeFilter["C"] = false;
+                state.activeFilter["Javascript"] = false;
+                state.activeFilter["VR"] = false;
+			}
+			state.activeFilter[value] = !state.activeFilter[value];
+			var totalB = false;
+			for (var key in state.activeFilter) {
+				totalB = totalB || state.activeFilter[key];
+			}
+			if (!totalB) {
+                state.activeFilter["All"] = true;
+			}
+			return state;
+		});
+    },
+
+	render : function() {
+		const programmingLanguages = ["All", "Java", "C++", "C", "Javascript", "VR"];
+		var filters = [];
+		var clickFunctions = [
+            ()=> this.handleClick("All"),
+            ()=> this.handleClick("Java"),
+            ()=> this.handleClick("C++"),
+            ()=> this.handleClick("C"),
+            ()=> this.handleClick("Javascript"),
+            ()=> this.handleClick("VR"),
+		];
+		for (i = 0; i < programmingLanguages.length; i++) {
+			filters[i] = (<li key={i + 1} className={this.state.activeFilter[programmingLanguages[i]] ? "filter-active" : null}>
+							<a href='#null' onClick={clickFunctions[i]}>
+								{programmingLanguages[i]}
+							</a>
+						</li>);
+		}
+        const projects = [
             {
                 title: "Project1",
                 code: ["Java", "C++"],
@@ -80,7 +136,7 @@ class ProjectViewer extends React.Component {
         ];
         var curAttributes = [];
 		for (var i = 0; i < projects.length; i++) {
-			curAttributes[i] = <ProjectNode title={projects[i].title} image={projects[i].image}
+			curAttributes[i] = <ProjectNode key={i + 1} title={projects[i].title} image={projects[i].image}
 											description={projects[i].description} link={projects[i].link} wait={(i + 1) * 100}/>
 		}
 		return (
@@ -90,6 +146,9 @@ class ProjectViewer extends React.Component {
 						<img src="../img/projectviewerb.jpg"/>
 					</Background>
 					<div className="project-filter-options">
+						<ul className="filters list-inline">
+							{filters}
+						</ul>
 					</div>
 					<div className="list-inline">
 						{curAttributes}
@@ -98,14 +157,20 @@ class ProjectViewer extends React.Component {
 			</div>
 		);
 	}
-}
+});
 
 class Filter extends React.Component {
 	render() {
+		var onChange = function (isVisible) {
+            console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
+			return isVisible;
+		}
 		return(
-			<div className="project-filter">
-				<ProjectViewer />
-			</div>
+			<VisibilitySensor onChange={onChange}>
+				<div className="project-filter">
+					<ProjectViewer onChange={onChange}/>
+				</div>
+			</VisibilitySensor>
 		);
 	}
 }

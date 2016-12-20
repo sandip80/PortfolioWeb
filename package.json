@@ -18,7 +18,7 @@
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
     "react-parallax": "^1.2.2",
-    "react-within-viewport": "^1.2.4"
+    "react-visibility-sensor": "^3.6.0"
   },
   "repository": {
     "type": "git",
