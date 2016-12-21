@@ -97,6 +97,7 @@ textarea {
 
 body {
     min-width: 300px;
+    position: relative;
 }
 
 body::-webkit-scrollbar {
@@ -141,56 +142,9 @@ body a:hover, body a:visited, body a:link, body a:active {
     color: #32CD32;
 }
 
-#about .navbar {
-    background: #32CD32;
-    border-radius: 0px;
-    padding: 15px;
-}
-
-#about .navbar-brand {
-    font-size: 2.3em;
-    font-family: 'Cuprum', sans-serif;
-}
-
-#about .navbar ul {
-    float: right;
-}
-
-#about .navbar li {
-    margin-right: 20px;
-    font-size: 1.5em;
-}
-
-#about .navbar a {
-    color: white;
-}
-
-#about .navbar a:hover {
-    transition-property: color;
-    transition-duration: 0.3s;
-    background-color:  #32CD32;
-    color: #0A290A;
-}
-
-#about .navbar a:focus {
-    background: #32CD32;
-}
-
-@media only screen and (max-width : 768px) {
-    #goup {
-        display: none;
-    }
-
-    #about .navbar ul {
-        width: 100%;
-        text-align: center;
-    }
-}
-
 #profilep .img-circle 
 {
     border: 5px solid #32CD32;
-    border-width: auto;
 }
 
 #profilep {
@@ -326,29 +280,6 @@ body hr {
 
 #hob-title li div {
     font-family: 'Roboto', sans-serif;
-}
-
-.filters li {
-    font-size: 1em;
-    background-color: lightgray;
-    border: 1px solid lightgray;
-    margin: 10px;
-    border-radius: 20px;
-}
-
-.filters li a {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.filter-active {
-    background-color: #32CD32 !important;
-    border: 1px solid #32CD32 !important;
-    font-weight: bold !important;
-}
-
-.filter-active a {
-    color: white !important;
 }
 
 /* ==========================================================================

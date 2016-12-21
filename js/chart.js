@@ -3,11 +3,11 @@
     var d3 = require('d3');
 
     var skillDataset = [
-        { label:'Java', percent:'28.57', count:'12000'},
-        { label:'C++', percent:'28.57', count:'11000'},
-        { label:'C', percent:'21.43', count:'8000'},
-        { label:'Javascript', percent:'14.28', count:'6000'},
-        { label:'Python', percent:'7.15', count:'2000'}
+        { label:'Java', percent:'32.97', count:'15000'},
+        { label:'C++', percent:'24.17', count:'11000'},
+        { label:'Javascript', percent:'19.78', count:'9000'},
+        { label:'C', percent:'17.58', count:'8000'},
+        { label:'Python', percent:'5.50', count:'2500'}
     ];
 
     var langaugeDataset = [

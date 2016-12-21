@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
 import { Parallax, Background } from 'react-parallax';
-import VisibilitySensor from 'react-visibility-sensor';
 
 var ProjectNode = React.createClass({
 	getInitialState: function() {
@@ -29,7 +28,7 @@ var ProjectNode = React.createClass({
 
     render: function() {
         return (
-			<div className={this.state.hidden + " animated fadeIn project-tab"}
+			<div className={this.state.hidden + " animated bounceIn project-tab"}
 				 onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
 				<a className="phone-link" href={this.props.link}>
 					<img className="img img-responsive project-image" src={this.props.image} />
@@ -65,7 +64,7 @@ var ProjectViewer = React.createClass({
 					"Javascript": false,
 					"VR": false
 				},
-				inViewPort: this.props.onChange
+				inViewPort: false
 			}
 		);
     },
@@ -115,36 +114,52 @@ var ProjectViewer = React.createClass({
             {
                 title: "Project1",
                 code: ["Java", "C++"],
-                image: "../img/dummy.jpg",
+                image: "./img/dummy.jpg",
                 description: "This is a dummy project 1",
                 link: "http://www.google.com"
             },
             {
                 title: "Project2",
                 code: ["C++"],
-                image: "../img/dummy.jpg",
+                image: "./img/dummy.jpg",
                 description: "This is a dummy project 2",
                 link: "http://www.yahoo.com"
             },
             {
                 title: "Project3",
                 code: ["C", "C++"],
-                image: "../img/dummy.jpg",
+                image: "./img/dummy.jpg",
                 description: "This is a dummy project 3",
                 link: "http://www.amazon.com"
             }
         ];
         var curAttributes = [];
+        var k = 0;
+        var createNewProjectNode = function (k, i) {
+			return(<ProjectNode key={i + 1} title={projects[i].title} image={projects[i].image}
+							 description={projects[i].description} link={projects[i].link} wait={(k + 1) * 100}/>);
+        }
 		for (var i = 0; i < projects.length; i++) {
-			curAttributes[i] = <ProjectNode key={i + 1} title={projects[i].title} image={projects[i].image}
-											description={projects[i].description} link={projects[i].link} wait={(i + 1) * 100}/>
+			if(this.state.activeFilter["All"]) {
+                curAttributes[k++] = createNewProjectNode(k, i);
+			} else {
+                var code = projects[i].code;
+                for (var j = 0; j < code.length; j++) {
+                    if (this.state.activeFilter[code[j]]) {
+                        curAttributes[k++] = createNewProjectNode(k, i);
+                    }
+                    break;
+                }
+			}
 		}
 		return (
 			<div className="project-viewer">
 				<Parallax strength={400}>
 					<Background>
-						<img src="../img/projectviewerb.jpg"/>
+						<img src="./img/projectviewerb.jpg"/>
 					</Background>
+					<h2>Projects</h2>
+					<hr />
 					<div className="project-filter-options">
 						<ul className="filters list-inline">
 							{filters}
@@ -161,19 +176,13 @@ var ProjectViewer = React.createClass({
 
 class Filter extends React.Component {
 	render() {
-		var onChange = function (isVisible) {
-            console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
-			return isVisible;
-		}
 		return(
-			<VisibilitySensor onChange={onChange}>
-				<div className="project-filter">
-					<ProjectViewer onChange={onChange}/>
-				</div>
-			</VisibilitySensor>
+			<div className="project-filter">
+				<ProjectViewer />
+			</div>
 		);
 	}
 }
 
-const app = document.getElementById("app");
+const app = document.getElementById("filter");
 ReactDom.render(<Filter />, app);

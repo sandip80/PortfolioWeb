@@ -23,10 +23,11 @@
 <link rel="stylesheet" type="text/css" href="css/animate.css">
 <link rel="stylesheet" type="text/css" href="css/hover.css"/>
 <link rel="stylesheet" type="text/css" href="css/headerComponent.css"/>
+<link rel="stylesheet" type="text/css" href="css/navigator.css"/>
 <link rel="stylesheet" type="text/css" href="css/filter.css"/>
 <link href="css/bootstrap-buttons.css" rel="stylesheet">
 </head>
-<body>
+<body data-spy="scroll" data-target="#scrollspy" data-offset="0">
 <!--[if lt IE 8]>
 	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -37,7 +38,7 @@
 			<canvas id="header-canvas"></canvas>
 			<div>
 				<h4 class="main-title" id="sub-title-1"><span class="thin">Hi, my name is</span></h4>
-				<h1 class="main-title"><span style="font-weight: bold;">Sandip</span><span class="thin">Samantaray</span></h1>
+				<h1 class="main-title"><span style="font-weight: bold;">Sandip</span><span class="thin"> Samantaray</span></h1>
 				<h2 class="main-title" id="sub-title-2"><span class="thin">I am a Junior at UW CSE</span></h2>
 			</div>
 			<ul class="main-btns">
@@ -50,8 +51,8 @@
 		</div>
 		<!-- /canvas -->
 		<div id="about">
-			<nav class="navbar fixedElement">
-			<span class="navbar-brand">Sandip<span style="color: white;">&nbsp;&nbsp;Samantaray</span></span>
+			<nav class="navbar fixedElement" id="scrollspy">
+			<span class="navbar-brand">Sandip<span style="color: white;"> Samantaray</span></span>
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle cust-btn" data-toggle="collapse" data-target=".navbar-menubuilder">
 				<span class="sr-only">Toggle navigation</span>
@@ -61,16 +62,16 @@
 				</button>
 			</div>
 			<ul class="nav navbar-nav collapse navbar-collapse navbar-menubuilder">
-				<li class="nav-item active">
-				<a class="nav-link hvr-underline-from-center" href="#smoothdiv">Who am I?</a>
+				<li>
+				<a class="nav-link hvr-underline-from-center" href="#about">Who am I?</a>
 				</li>
-				<li class="nav-item">
-				<a class="nav-link hvr-underline-from-center" href="#">Projects</a>
+				<li>
+				<a class="nav-link hvr-underline-from-center" href="#filter">Projects</a>
 				</li>
-				<li class="nav-item">
-				<a class="nav-link hvr-underline-from-center" href="#">Contact me</a>
+				<li>
+				<a class="nav-link hvr-underline-from-center" href="#filter">Contact me</a>
 				</li>
-				<li class="nav-item">
+				<li id="goToTop" class="animated">
 				<a class="nav-link fa fa-chevron-up" href="#large-header"></a>
 				</li>
 			</ul>
@@ -149,21 +150,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="projects text-center">
-				<h2>Projects</h2>
-				<hr>
-				<ul class="filters list-inline">
-					<li class="filter-active"><a>All</a></li>
-					<li><a href="">Java</a></li>
-					<li><a href="">C++</a></li>
-					<li><a href="">C</a></li>
-					<li><a href="">Javascript</a></li>
-					<li><a href="">VR</a></li>
-				</ul>
-				<div class="project-list list-inline">
-					
-				</div>
-			</div>
+			<!--React implementation-->
+			<div class="projects text-center" id="filter"></div>
+			<!--End React implementation-->
 		</div>
 	</div>
 </div>
