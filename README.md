@@ -15,4 +15,5 @@ Portfolio website
 ## CSS Libraries:
  - Bootstrap
  - animate.css
+ - hover.css
  
