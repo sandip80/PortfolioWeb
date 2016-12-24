@@ -1,0 +1,68 @@
+#contact label {
+    color: #255625;
+}
+
+#contact input, #contact textarea {
+    background-color: #0F9E5E;
+    color: white;
+    border: 0px;
+    border-radius: 0px;
+}
+
+#contact input:focus, #contact textarea:focus {
+    box-shadow: 0px 0px 2px 1px #255625;
+}
+
+#contact button {
+    border-color: #255625;
+    color: #255625;
+    transition-property: background-color;
+}
+
+#contact button:hover {
+    background-color: #b2dba1;
+    transition-duration: 0.5s;
+}
+
+#contact hr {
+    background-color: white;
+    width: 25%;
+    height: 2px;
+}
+
+#contact h2 {
+    text-align: center;
+    color: #255625;
+}
+
+#contact .row {
+    padding: 30px;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    lightgray !important;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    lightgray !important;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    lightgray !important;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    lightgray !important;
+}
+
+.contact-form {
+    position: absolute;
+    width: 30%;
+    top: 10%;
+    left: 60%;
+    background-color: #32CD32;
+    box-shadow: 0px 0px 10px 1px #888888;
+}
+
+#contact {
+    position: relative;
+}

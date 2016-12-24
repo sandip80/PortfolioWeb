@@ -8,3 +8,4 @@ require('./js/navigator');
 require('./js/chart');
 require('./js/slideshow');
 require('./js/filter');
+require('./js/contact');
