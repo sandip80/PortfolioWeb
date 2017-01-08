@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-
-var $ = require('jquery');
+import $ from "jquery";
 
 var FormHeader = React.createClass({
     render: function() {
@@ -30,7 +29,8 @@ var Form = React.createClass({
         return({first:"", last:"", email:"", phone:"", message:""});
     },
 
-    onSubmit: function(e) {
+    handleSubmit: function(e) {
+        console.log('called');
         $('#c-form').validate();
         if (!e.isDefaultPrevented()) {
             var url = "contact.php";
@@ -38,13 +38,13 @@ var Form = React.createClass({
             $.ajax({
                 type: "POST",
                 url: url,
-                data: $(this).serialize(),
+                data: $('#c-form').serialize(),
                 success: function (data)
                 {
                     var messageAlert = 'alert-' + data.type;
                     var messageText = data.message;
 
-                    var alertBox = '<div className="alert ' + messageAlert + ' alert-dismissable"><button type="button" className="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
                     if (messageAlert && messageText) {
                         $('#c-form').find('.messages').html(alertBox);
                         $('#c-form')[0].reset();
@@ -112,41 +112,44 @@ var Form = React.createClass({
 
     render: function() {
         return(
-            <form className="contact-form" id="c-form" method="post" action="contact.php" onSubmit={this.onSubmit}>
-                <div class="messages"></div>
+            <form className="contact-form" id="c-form" onSubmit={this.handleSubmit}>
+                <div className="messages"></div>
                 <div className="row">
                     <div className="col-md-12 form-group">
                         <label className="form-control-label">First Name*</label>
                         <CheckMark valid={this.isValidFirst()} value={this.state.first}/>
-                        <input type="text" placeholder="Please enter your first name*" className="form-control"
+                        <input name="name" type="text" placeholder="Please enter your first name*" className="form-control"
                                required="required" value={this.state.first} onChange={this.handleFirst}/>
                     </div>
                     <div className="col-md-12 form-group">
                         <label className="form-control-label">Last Name*</label>
                         <CheckMark valid={this.isValidLast()} value={this.state.last}/>
-                        <input type="text" placeholder="Please enter your last name*" className="form-control"
+                        <input name="surname" type="text" placeholder="Please enter your last name*" className="form-control"
                                required="required" value={this.state.last} onChange={this.handleLast}/>
                     </div>
                     <div className="col-md-12 form-group">
                         <label className="form-control-label">Email*</label>
                         <CheckMark valid={this.isValidEmail()} value={this.state.email}/>
-                        <input type="email" placeholder="Please enter your email*" className="form-control"
+                        <input name="email" type="email" placeholder="Please enter your email*" className="form-control"
                                required="required" value={this.state.email} onChange={this.handleEmail}/>
                     </div>
                     <div className="col-md-12 form-group">
                         <label className="form-control-label">Phone</label>
                         <CheckMark valid={this.isValidPhone()} value={this.state.phone}/>
-                        <input type="tel" placeholder="Please enter your phone number" className="form-control"
+                        <input name="phone" type="tel" placeholder="Please enter your phone number" className="form-control"
                                value={this.state.phone} onChange={this.handlePhone}/>
                     </div>
                     <div className="col-md-12 form-group">
                         <label className="form-control-label">Message*</label>
                         <CheckMark valid={this.isValidMessage()} value={this.state.message}/>
-                        <textarea placeholder="Please enter your message*" className="form-control"
+                        <textarea name="message" placeholder="Please enter your message*" className="form-control"
                                   required="required" value={this.state.message} onChange={this.handleMessage}></textarea>
                     </div>
                     <div className="col-xs-3 form-group">
-                        <button className="btn btn-primary sharp outline" type="submit">Submit</button>
+                        <button className="btn btn-primary sharp outline" type="submit">Send Message</button>
+                    </div>
+                    <div className="col-xs-12">
+                        <strong>*</strong> These fields are required.
                     </div>
                 </div>
             </form>

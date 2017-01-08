@@ -328,6 +328,10 @@ var _reactDom = require("react-dom");
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _jquery = require("jquery");
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -335,8 +339,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var $ = require('jquery');
 
 var FormHeader = _react2.default.createClass({
     displayName: "FormHeader",
@@ -392,23 +394,24 @@ var Form = _react2.default.createClass({
         return { first: "", last: "", email: "", phone: "", message: "" };
     },
 
-    onSubmit: function onSubmit(e) {
-        $('#c-form').validate();
+    handleSubmit: function handleSubmit(e) {
+        console.log('called');
+        (0, _jquery2.default)('#c-form').validate();
         if (!e.isDefaultPrevented()) {
             var url = "contact.php";
 
-            $.ajax({
+            _jquery2.default.ajax({
                 type: "POST",
                 url: url,
-                data: $(this).serialize(),
+                data: (0, _jquery2.default)('#c-form').serialize(),
                 success: function success(data) {
                     var messageAlert = 'alert-' + data.type;
                     var messageText = data.message;
 
-                    var alertBox = '<div className="alert ' + messageAlert + ' alert-dismissable"><button type="button" className="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
                     if (messageAlert && messageText) {
-                        $('#c-form').find('.messages').html(alertBox);
-                        $('#c-form')[0].reset();
+                        (0, _jquery2.default)('#c-form').find('.messages').html(alertBox);
+                        (0, _jquery2.default)('#c-form')[0].reset();
                     }
                 }
             });
@@ -474,8 +477,8 @@ var Form = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             "form",
-            { className: "contact-form", id: "c-form", method: "post", action: "contact.php", onSubmit: this.onSubmit },
-            _react2.default.createElement("div", { "class": "messages" }),
+            { className: "contact-form", id: "c-form", onSubmit: this.handleSubmit },
+            _react2.default.createElement("div", { className: "messages" }),
             _react2.default.createElement(
                 "div",
                 { className: "row" },
@@ -488,7 +491,7 @@ var Form = _react2.default.createClass({
                         "First Name*"
                     ),
                     _react2.default.createElement(CheckMark, { valid: this.isValidFirst(), value: this.state.first }),
-                    _react2.default.createElement("input", { type: "text", placeholder: "Please enter your first name*", className: "form-control",
+                    _react2.default.createElement("input", { name: "name", type: "text", placeholder: "Please enter your first name*", className: "form-control",
                         required: "required", value: this.state.first, onChange: this.handleFirst })
                 ),
                 _react2.default.createElement(
@@ -500,7 +503,7 @@ var Form = _react2.default.createClass({
                         "Last Name*"
                     ),
                     _react2.default.createElement(CheckMark, { valid: this.isValidLast(), value: this.state.last }),
-                    _react2.default.createElement("input", { type: "text", placeholder: "Please enter your last name*", className: "form-control",
+                    _react2.default.createElement("input", { name: "surname", type: "text", placeholder: "Please enter your last name*", className: "form-control",
                         required: "required", value: this.state.last, onChange: this.handleLast })
                 ),
                 _react2.default.createElement(
@@ -512,7 +515,7 @@ var Form = _react2.default.createClass({
                         "Email*"
                     ),
                     _react2.default.createElement(CheckMark, { valid: this.isValidEmail(), value: this.state.email }),
-                    _react2.default.createElement("input", { type: "email", placeholder: "Please enter your email*", className: "form-control",
+                    _react2.default.createElement("input", { name: "email", type: "email", placeholder: "Please enter your email*", className: "form-control",
                         required: "required", value: this.state.email, onChange: this.handleEmail })
                 ),
                 _react2.default.createElement(
@@ -524,7 +527,7 @@ var Form = _react2.default.createClass({
                         "Phone"
                     ),
                     _react2.default.createElement(CheckMark, { valid: this.isValidPhone(), value: this.state.phone }),
-                    _react2.default.createElement("input", { type: "tel", placeholder: "Please enter your phone number", className: "form-control",
+                    _react2.default.createElement("input", { name: "phone", type: "tel", placeholder: "Please enter your phone number", className: "form-control",
                         value: this.state.phone, onChange: this.handlePhone })
                 ),
                 _react2.default.createElement(
@@ -536,7 +539,7 @@ var Form = _react2.default.createClass({
                         "Message*"
                     ),
                     _react2.default.createElement(CheckMark, { valid: this.isValidMessage(), value: this.state.message }),
-                    _react2.default.createElement("textarea", { placeholder: "Please enter your message*", className: "form-control",
+                    _react2.default.createElement("textarea", { name: "message", placeholder: "Please enter your message*", className: "form-control",
                         required: "required", value: this.state.message, onChange: this.handleMessage })
                 ),
                 _react2.default.createElement(
@@ -545,8 +548,18 @@ var Form = _react2.default.createClass({
                     _react2.default.createElement(
                         "button",
                         { className: "btn btn-primary sharp outline", type: "submit" },
-                        "Submit"
+                        "Send Message"
                     )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "col-xs-12" },
+                    _react2.default.createElement(
+                        "strong",
+                        null,
+                        "*"
+                    ),
+                    " These fields are required."
                 )
             )
         );
