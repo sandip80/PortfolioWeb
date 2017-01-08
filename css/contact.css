@@ -1,4 +1,32 @@
+#contact {
+    position: relative;
+}
+
+.contact-header {
+    background-color: #32CD32;
+    padding: 10px;
+}
+
+.contact-header li {
+    font-size: 15px;
+}
+
+.contact-header li i {
+    margin-right: 10px;
+}
+
+.contact-form {
+    position: absolute;
+    width: 30%;
+    top: 25%;
+    left: 60%;
+    background-color: #32CD32;
+    box-shadow: 0px 0px 10px 1px #888888;
+    z-index: 1000;
+}
+
 #contact label {
+    font-size: 20px;
     color: #255625;
 }
 
@@ -19,15 +47,13 @@
     transition-property: background-color;
 }
 
-#contact button:hover {
+#contact button:hover, #contact li a:hover {
     background-color: #b2dba1;
     transition-duration: 0.5s;
 }
 
 #contact hr {
     background-color: white;
-    width: 25%;
-    height: 2px;
 }
 
 #contact h2 {
@@ -54,15 +80,54 @@
     color:    lightgray !important;
 }
 
-.contact-form {
-    position: absolute;
-    width: 30%;
-    top: 10%;
-    left: 60%;
-    background-color: #32CD32;
-    box-shadow: 0px 0px 10px 1px #888888;
+#contact ul {
+    margin-bottom: 20px;
 }
 
-#contact {
-    position: relative;
+#contact li a {
+    border: 2px solid #255625;
+    padding: 6px;
+    transition-property: background-color;
+}
+
+#contact i {
+    width: 15px;
+    height: 15px;
+    color: #255625;
+}
+
+.contact-footer {
+    background-color: #32CD32;
+    overflow: hidden;
+}
+
+.contact-footer ul {
+    float: left;
+    margin-left: 20px;
+}
+
+#copyright {
+    float: right;
+    margin-right: 20px;
+    font-size: 13px;
+}
+
+.contact-footer ul, #copyright {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width : 768px) {
+    .contact-form {
+        position: static;
+        width: 100%;
+        box-shadow: 0 0 0 0 #FFF;
+        z-index: 0;
+    }
+
+    .contact-footer ul, #copyright {
+        float: none;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }

@@ -25,9 +25,10 @@
 <link rel="stylesheet" type="text/css" href="css/headerComponent.css"/>
 <link rel="stylesheet" type="text/css" href="css/navigator.css"/>
 <link rel="stylesheet" type="text/css" href="css/filter.css"/>
+<link rel="stylesheet" type="text/css" href="css/contact.css">
 <link href="css/bootstrap-buttons.css" rel="stylesheet">
 </head>
-<body data-spy="scroll" data-target="#scrollspy" data-offset="0">
+<body data-spy="scroll" data-target="#scrollspy" data-offset="50">
 <!--[if lt IE 8]>
 	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -43,7 +44,7 @@
 			</div>
 			<ul class="main-btns">
 				<li><a href="#about" class="btn btn-primary sharp outline" id="mbutton1">About Me</a></li>
-				<li><a href="./resume.pdf" class="btn btn-primary sharp" id="mbutton2"><i class="fa fa-cloud-download" aria-hidden="true"></i>Resume</a></li>
+				<li><a href="./resume.pdf" class="btn btn-primary sharp" target="_blank" id="mbutton2"><i class="fa fa-cloud-download" aria-hidden="true"></i>Resume</a></li>
 			</ul>
 			<div class="slider">
 				<a class="fa fa-chevron-down" href="#about"></a>
@@ -61,6 +62,9 @@
 				<span class="icon-bar"></span>
 				</button>
 			</div>
+			<div id="goToTop">
+				<a class="nav-link fa fa-chevron-up" href="#large-header"></a>
+			</div>
 			<ul class="nav navbar-nav collapse navbar-collapse navbar-menubuilder">
 				<li>
 				<a class="nav-link hvr-underline-from-center" href="#about">Who am I?</a>
@@ -69,10 +73,7 @@
 				<a class="nav-link hvr-underline-from-center" href="#filter">Projects</a>
 				</li>
 				<li>
-				<a class="nav-link hvr-underline-from-center" href="#filter">Contact me</a>
-				</li>
-				<li id="goToTop" class="animated">
-				<a class="nav-link fa fa-chevron-up" href="#large-header"></a>
+				<a class="nav-link hvr-underline-from-center" href="#contact">Contact me</a>
 				</li>
 			</ul>
 			</nav>
@@ -152,7 +153,55 @@
 			</div>
 			<!--React implementation-->
 			<div class="projects text-center" id="filter"></div>
-			<div class="contacts" id="contact"></div>
+			<div class="contacts" id="contact">
+				<div class="contact-header">
+					<h2>Contact Me</h2>
+					<hr/>
+					<ul class="text-center list-inline">
+						<li><i class="fa fa-home" aria-hidden="true"></i>5000 25th Ave NE 5103-D Seattle, WA, United States 98105</li>
+						<li><i class="fa fa-envelope" aria-hidden="true"></i>xenosis@sandips.xyz</li>
+						<li><i class="fa fa-phone" aria-hidden="true"></i>(971) 801-0173</li>
+					</ul>
+				</div>
+				<form class="contact-form" method="post" action="contact.php">
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<label class="form-control-label">First Name*</label>
+							<input type="text" placeholder="Please enter your first name*" class="form-control" required="required">
+						</div>
+						<div class="col-md-12 form-group">
+							<label class="form-control-label">Last Name*</label>
+							<input type="text" placeholder="Please enter your last name*" class="form-control" required="required">
+						</div>
+						<div class="col-md-12 form-group">
+							<label class="form-control-label">Email*</label>
+							<input type="email" placeholder="Please enter your email*" class="form-control" required="required">
+						</div>
+						<div class="col-md-12 form-group">
+							<label class="form-control-label">Phone</label>
+							<input type="tel" placeholder="Please enter your phone number" class="form-control">
+						</div>
+						<div class="col-md-12 form-group">
+							<label class="form-control-label">Message*</label>
+							<textarea placeholder="Please enter your message*" class="form-control" required="required"></textarea>
+						</div>
+						<div class="col-xs-3 form-group">
+							<button class="btn btn-primary sharp outline" type="submit">Submit</button>
+						</div>
+					</div>
+				</form>
+				<div id="map"></div>
+				<div class="contact-footer">
+					<ul class="list-inline">
+						<li><a href="https://www.facebook.com/sandip.samantaray.121" class="img img-circle" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://twitter.com/SandipSamantray" class="img img-circle" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://github.com/sandip80" class="img img-circle" title="GitHub"><i class="fa fa-github"></i></a></li>
+						<li><a href="https://plus.google.com/+SandipSamantaray/" class="img img-circle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/sandip80" class="img img-circle" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+					</ul>
+					<div id="copyright">Copyright © 2017 Sandip Samantaray</div>
+				</div>
+			</div>
 			<!--End React implementation-->
 		</div>
 	</div>
@@ -167,5 +216,7 @@
     ga('create','UA-84029584-1','auto');ga('send','pageview');
 </script>
 <script src="js/bundle.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA370EM2SX9Z-xQ1T_W37GsAK_pRID66kE&callback=initMap" async defer></script>
+<script src="js/googlemaps.js"></script>
 </body>
 </html>

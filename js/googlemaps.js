@@ -111,7 +111,7 @@ function initMap() {
             }
         ], {name: 'Styled Map'});
     var mapDOM = document.getElementById('map');
-    mapDOM.style.height = window.innerHeight + "px";
+    mapDOM.style.height = (window.innerHeight - 80) + "px";
     var seattle = {lat: 47.665236, lng: -122.2993706};
     var map = new google.maps.Map(mapDOM, {
         zoom: 14,

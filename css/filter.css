@@ -108,7 +108,8 @@
 	.project-tab {
 		width: 100px;
 		height: 100px;
-		margin: 10px;
+		margin: 50px;
+		vertical-align: top;
 	}
 
 	.project-text {

@@ -53,7 +53,12 @@
 }
 
 #goToTop {
-  margin-left: 15px;
+  float: right;
+  padding: 15px;
+  font-size: 15px;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.5s;
 }
 
 @media only screen and (max-width : 768px) {
@@ -64,5 +69,9 @@
   #about .navbar ul {
     width: 100%;
     text-align: center;
+  }
+
+  .navbar-header {
+    float: right;
   }
 }
