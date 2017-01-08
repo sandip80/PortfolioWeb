@@ -783,7 +783,7 @@ _reactDom2.default.render(_react2.default.createElement(Filter, null), app);
 
 (function () {
     var $ = require('jquery');
-    $(document).on('click', 'a', function (event) {
+    $(document).on('click', '.smooth', function (event) {
         event.preventDefault();
 
         $('html, body').animate({

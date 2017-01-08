@@ -1,6 +1,6 @@
 (function () {
     var $ = require('jquery');
-    $(document).on('click', 'a', function(event){
+    $(document).on('click', '.smooth', function(event){
         event.preventDefault();
 
         $('html, body').animate({
