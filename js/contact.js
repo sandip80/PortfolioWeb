@@ -31,7 +31,7 @@ var Form = React.createClass({
     },
 
     onSubmit: function(e) {
-        $('.contact-form').validate();
+        $('#c-form').validate();
         if (!e.isDefaultPrevented()) {
             var url = "contact.php";
 
@@ -46,8 +46,8 @@ var Form = React.createClass({
 
                     var alertBox = '<div className="alert ' + messageAlert + ' alert-dismissable"><button type="button" className="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
                     if (messageAlert && messageText) {
-                        $('#contact-form').find('.messages').html(alertBox);
-                        $('#contact-form')[0].reset();
+                        $('#c-form').find('.messages').html(alertBox);
+                        $('#c-form')[0].reset();
                     }
                 }
             });
@@ -112,7 +112,8 @@ var Form = React.createClass({
 
     render: function() {
         return(
-            <form className="contact-form" method="post" action="contact.php" onSubmit={this.onSubmit}>
+            <form className="contact-form" id="c-form" method="post" action="contact.php" onSubmit={this.onSubmit}>
+                <div class="messages"></div>
                 <div className="row">
                     <div className="col-md-12 form-group">
                         <label className="form-control-label">First Name*</label>

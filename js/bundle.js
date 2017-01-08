@@ -393,7 +393,7 @@ var Form = _react2.default.createClass({
     },
 
     onSubmit: function onSubmit(e) {
-        $('.contact-form').validate();
+        $('#c-form').validate();
         if (!e.isDefaultPrevented()) {
             var url = "contact.php";
 
@@ -407,8 +407,8 @@ var Form = _react2.default.createClass({
 
                     var alertBox = '<div className="alert ' + messageAlert + ' alert-dismissable"><button type="button" className="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
                     if (messageAlert && messageText) {
-                        $('#contact-form').find('.messages').html(alertBox);
-                        $('#contact-form')[0].reset();
+                        $('#c-form').find('.messages').html(alertBox);
+                        $('#c-form')[0].reset();
                     }
                 }
             });
@@ -474,7 +474,8 @@ var Form = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             "form",
-            { className: "contact-form", method: "post", action: "contact.php", onSubmit: this.onSubmit },
+            { className: "contact-form", id: "c-form", method: "post", action: "contact.php", onSubmit: this.onSubmit },
+            _react2.default.createElement("div", { "class": "messages" }),
             _react2.default.createElement(
                 "div",
                 { className: "row" },
