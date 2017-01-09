@@ -722,7 +722,7 @@ var ProjectNode = _react2.default.createClass({
 				onMouseEnter: this.onMouseEnter, onMouseLeave: this.onMouseLeave },
 			_react2.default.createElement(
 				"a",
-				{ className: "phone-link", href: this.props.link },
+				{ className: "phone-link", href: this.props.link, target: "_blank" },
 				_react2.default.createElement("img", { className: "img img-responsive project-image", src: this.props.image })
 			),
 			_react2.default.createElement("img", { className: "img img-responsive project-image project-normal-image", src: this.props.image }),
@@ -742,7 +742,7 @@ var ProjectNode = _react2.default.createClass({
 				),
 				_react2.default.createElement(
 					"a",
-					{ className: "btn btn-primary sharp outline project-link", href: this.props.link },
+					{ className: "btn btn-primary sharp outline project-link", href: this.props.link, target: "_blank" },
 					"Learn More"
 				)
 			) : null,
@@ -830,37 +830,37 @@ var ProjectViewer = _react2.default.createClass({
 		var projects = [{
 			title: "Squares",
 			code: ["Java"],
-			image: "./img/dummy.jpg",
+			image: "./img/squares.jpg",
 			description: "A 2D game designed in java. The project mainly demonstrates the design of the game engine " + "and the management of the resources when they are imported into the program.",
 			link: "https://github.com/sandip80/squares"
 		}, {
 			title: "Rubik's cube solver",
 			code: ["C++"],
-			image: "./img/dummy.jpg",
+			image: "./img/cube.jpg",
 			description: "A C++ group project that uses macro operators to solve Rubik's cube. The project is an " + "application of the thesis, “Learning to Solve Problems by Searching for Macro-Operators” written by " + "Richard E. Korf. My responsibilities in the project included building a GUI framework for the Rubik's " + "cube and a test 15 puzzle game.",
 			link: "https://github.com/sandip80/MO"
 		}, {
 			title: "CampusMap Navigator",
 			code: ["Java"],
-			image: "./img/dummy.jpg",
+			image: "./img/map.jpg",
 			description: "The project involved creating a Java swing app to navigate between two buildings in the " + "UW campus. The app uses Dijkstra's algorithm to find the shortest path between two nodes in a graph " + "where the nodes are the campus buildings.",
-			link: "http://sandips.xyz/assets/CampusMapNavigator.zip"
+			link: "http://sandips.xyz/CampusMapNavigator.zip"
 		}, {
 			title: "333 Web search engine",
 			code: ["C", "C++"],
-			image: "./img/dummy.jpg",
+			image: "./img/web.jpg",
 			description: "The project was about implementing a web search engine using both C and C++. It uses " + "inverted index structure to process the query.",
 			link: "http://333gle.ngrok.io/"
 		}, {
 			title: "Oracle",
 			code: ["Javascript", "Python"],
-			image: "./img/dummy.jpg",
+			image: "./img/oracle.jpg",
 			description: "This project is a chat bot that assist clients with the up to date information about the " + "stock market. The bot is developed on a node server with a python program running on the backend. The python " + "program analyzes the data extracted from NASDAQ api and uses Sentiment Analysis of IBM Watson api to make " + "a quick prediction of stock.",
 			link: "https://github.com/sandip80/Oracle"
 		}, {
 			title: "VRifyData",
 			code: ["VR"],
-			image: "./img/dummy.jpg",
+			image: "./img/vrify.jpg",
 			description: "This project is a VR application that creates a new way to experience, analyze, and " + "represent data through virtual reality.",
 			link: "https://github.com/Keydex/VRifyData"
 		}];
