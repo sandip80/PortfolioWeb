@@ -848,19 +848,19 @@ var ProjectViewer = _react2.default.createClass({
 		}, {
 			title: "333 Web search engine",
 			code: ["C", "C++"],
-			image: "./img/web.jpg",
+			image: "./img/dummy.jpg",
 			description: "The project was about implementing a web search engine using both C and C++. It uses " + "inverted index structure to process the query.",
 			link: "http://333gle.ngrok.io/"
 		}, {
 			title: "Oracle",
 			code: ["Javascript", "Python"],
-			image: "./img/oracle.jpg",
+			image: "./img/dummy.jpg",
 			description: "This project is a chat bot that assist clients with the up to date information about the " + "stock market. The bot is developed on a node server with a python program running on the backend. The python " + "program analyzes the data extracted from NASDAQ api and uses Sentiment Analysis of IBM Watson api to make " + "a quick prediction of stock.",
 			link: "https://github.com/sandip80/Oracle"
 		}, {
 			title: "VRifyData",
 			code: ["VR"],
-			image: "./img/vrify.jpg",
+			image: "./img/dummy.jpg",
 			description: "This project is a VR application that creates a new way to experience, analyze, and " + "represent data through virtual reality.",
 			link: "https://github.com/Keydex/VRifyData"
 		}];
@@ -3530,14 +3530,14 @@ require('../../js/affix.js')
 }(jQuery);
 
 },{}],24:[function(require,module,exports){
-// https://d3js.org Version 4.4.0. Copyright 2016 Mike Bostock.
+// https://d3js.org Version 4.4.1. Copyright 2017 Mike Bostock.
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (factory((global.d3 = global.d3 || {})));
 }(this, (function (exports) { 'use strict';
 
-var version = "4.4.0";
+var version = "4.4.1";
 
 var ascending = function(a, b) {
   return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
@@ -3655,7 +3655,7 @@ var array = Array.prototype;
 var slice = array.slice;
 var map = array.map;
 
-var constant$1 = function(x) {
+var constant = function(x) {
   return function() {
     return x;
   };
@@ -3756,15 +3756,15 @@ var histogram = function() {
   }
 
   histogram.value = function(_) {
-    return arguments.length ? (value = typeof _ === "function" ? _ : constant$1(_), histogram) : value;
+    return arguments.length ? (value = typeof _ === "function" ? _ : constant(_), histogram) : value;
   };
 
   histogram.domain = function(_) {
-    return arguments.length ? (domain = typeof _ === "function" ? _ : constant$1([_[0], _[1]]), histogram) : domain;
+    return arguments.length ? (domain = typeof _ === "function" ? _ : constant([_[0], _[1]]), histogram) : domain;
   };
 
   histogram.thresholds = function(_) {
-    return arguments.length ? (threshold = typeof _ === "function" ? _ : Array.isArray(_) ? constant$1(slice.call(_)) : constant$1(_), histogram) : threshold;
+    return arguments.length ? (threshold = typeof _ === "function" ? _ : Array.isArray(_) ? constant(slice.call(_)) : constant(_), histogram) : threshold;
   };
 
   return histogram;
@@ -5235,7 +5235,7 @@ function queue(concurrency) {
   return new Queue(arguments.length ? +concurrency : Infinity);
 }
 
-var constant$2 = function(x) {
+var constant$1 = function(x) {
   return function constant() {
     return x;
   };
@@ -5323,7 +5323,7 @@ function cornerTangents(x0, y0, x1, y1, r1, rc, cw) {
 var arc = function() {
   var innerRadius = arcInnerRadius,
       outerRadius = arcOuterRadius,
-      cornerRadius = constant$2(0),
+      cornerRadius = constant$1(0),
       padRadius = null,
       startAngle = arcStartAngle,
       endAngle = arcEndAngle,
@@ -5472,31 +5472,31 @@ var arc = function() {
   };
 
   arc.innerRadius = function(_) {
-    return arguments.length ? (innerRadius = typeof _ === "function" ? _ : constant$2(+_), arc) : innerRadius;
+    return arguments.length ? (innerRadius = typeof _ === "function" ? _ : constant$1(+_), arc) : innerRadius;
   };
 
   arc.outerRadius = function(_) {
-    return arguments.length ? (outerRadius = typeof _ === "function" ? _ : constant$2(+_), arc) : outerRadius;
+    return arguments.length ? (outerRadius = typeof _ === "function" ? _ : constant$1(+_), arc) : outerRadius;
   };
 
   arc.cornerRadius = function(_) {
-    return arguments.length ? (cornerRadius = typeof _ === "function" ? _ : constant$2(+_), arc) : cornerRadius;
+    return arguments.length ? (cornerRadius = typeof _ === "function" ? _ : constant$1(+_), arc) : cornerRadius;
   };
 
   arc.padRadius = function(_) {
-    return arguments.length ? (padRadius = _ == null ? null : typeof _ === "function" ? _ : constant$2(+_), arc) : padRadius;
+    return arguments.length ? (padRadius = _ == null ? null : typeof _ === "function" ? _ : constant$1(+_), arc) : padRadius;
   };
 
   arc.startAngle = function(_) {
-    return arguments.length ? (startAngle = typeof _ === "function" ? _ : constant$2(+_), arc) : startAngle;
+    return arguments.length ? (startAngle = typeof _ === "function" ? _ : constant$1(+_), arc) : startAngle;
   };
 
   arc.endAngle = function(_) {
-    return arguments.length ? (endAngle = typeof _ === "function" ? _ : constant$2(+_), arc) : endAngle;
+    return arguments.length ? (endAngle = typeof _ === "function" ? _ : constant$1(+_), arc) : endAngle;
   };
 
   arc.padAngle = function(_) {
-    return arguments.length ? (padAngle = typeof _ === "function" ? _ : constant$2(+_), arc) : padAngle;
+    return arguments.length ? (padAngle = typeof _ === "function" ? _ : constant$1(+_), arc) : padAngle;
   };
 
   arc.context = function(_) {
@@ -5549,7 +5549,7 @@ function y(p) {
 var line = function() {
   var x$$1 = x,
       y$$1 = y,
-      defined = constant$2(true),
+      defined = constant$1(true),
       context = null,
       curve = curveLinear,
       output = null;
@@ -5575,15 +5575,15 @@ var line = function() {
   }
 
   line.x = function(_) {
-    return arguments.length ? (x$$1 = typeof _ === "function" ? _ : constant$2(+_), line) : x$$1;
+    return arguments.length ? (x$$1 = typeof _ === "function" ? _ : constant$1(+_), line) : x$$1;
   };
 
   line.y = function(_) {
-    return arguments.length ? (y$$1 = typeof _ === "function" ? _ : constant$2(+_), line) : y$$1;
+    return arguments.length ? (y$$1 = typeof _ === "function" ? _ : constant$1(+_), line) : y$$1;
   };
 
   line.defined = function(_) {
-    return arguments.length ? (defined = typeof _ === "function" ? _ : constant$2(!!_), line) : defined;
+    return arguments.length ? (defined = typeof _ === "function" ? _ : constant$1(!!_), line) : defined;
   };
 
   line.curve = function(_) {
@@ -5600,9 +5600,9 @@ var line = function() {
 var area$1 = function() {
   var x0 = x,
       x1 = null,
-      y0 = constant$2(0),
+      y0 = constant$1(0),
       y1 = y,
-      defined = constant$2(true),
+      defined = constant$1(true),
       context = null,
       curve = curveLinear,
       output = null;
@@ -5650,27 +5650,27 @@ var area$1 = function() {
   }
 
   area.x = function(_) {
-    return arguments.length ? (x0 = typeof _ === "function" ? _ : constant$2(+_), x1 = null, area) : x0;
+    return arguments.length ? (x0 = typeof _ === "function" ? _ : constant$1(+_), x1 = null, area) : x0;
   };
 
   area.x0 = function(_) {
-    return arguments.length ? (x0 = typeof _ === "function" ? _ : constant$2(+_), area) : x0;
+    return arguments.length ? (x0 = typeof _ === "function" ? _ : constant$1(+_), area) : x0;
   };
 
   area.x1 = function(_) {
-    return arguments.length ? (x1 = _ == null ? null : typeof _ === "function" ? _ : constant$2(+_), area) : x1;
+    return arguments.length ? (x1 = _ == null ? null : typeof _ === "function" ? _ : constant$1(+_), area) : x1;
   };
 
   area.y = function(_) {
-    return arguments.length ? (y0 = typeof _ === "function" ? _ : constant$2(+_), y1 = null, area) : y0;
+    return arguments.length ? (y0 = typeof _ === "function" ? _ : constant$1(+_), y1 = null, area) : y0;
   };
 
   area.y0 = function(_) {
-    return arguments.length ? (y0 = typeof _ === "function" ? _ : constant$2(+_), area) : y0;
+    return arguments.length ? (y0 = typeof _ === "function" ? _ : constant$1(+_), area) : y0;
   };
 
   area.y1 = function(_) {
-    return arguments.length ? (y1 = _ == null ? null : typeof _ === "function" ? _ : constant$2(+_), area) : y1;
+    return arguments.length ? (y1 = _ == null ? null : typeof _ === "function" ? _ : constant$1(+_), area) : y1;
   };
 
   area.lineX0 =
@@ -5687,7 +5687,7 @@ var area$1 = function() {
   };
 
   area.defined = function(_) {
-    return arguments.length ? (defined = typeof _ === "function" ? _ : constant$2(!!_), area) : defined;
+    return arguments.length ? (defined = typeof _ === "function" ? _ : constant$1(!!_), area) : defined;
   };
 
   area.curve = function(_) {
@@ -5713,9 +5713,9 @@ var pie = function() {
   var value = identity$1,
       sortValues = descending$1,
       sort = null,
-      startAngle = constant$2(0),
-      endAngle = constant$2(tau$2),
-      padAngle = constant$2(0);
+      startAngle = constant$1(0),
+      endAngle = constant$1(tau$2),
+      padAngle = constant$1(0);
 
   function pie(data) {
     var i,
@@ -5758,7 +5758,7 @@ var pie = function() {
   }
 
   pie.value = function(_) {
-    return arguments.length ? (value = typeof _ === "function" ? _ : constant$2(+_), pie) : value;
+    return arguments.length ? (value = typeof _ === "function" ? _ : constant$1(+_), pie) : value;
   };
 
   pie.sortValues = function(_) {
@@ -5770,15 +5770,15 @@ var pie = function() {
   };
 
   pie.startAngle = function(_) {
-    return arguments.length ? (startAngle = typeof _ === "function" ? _ : constant$2(+_), pie) : startAngle;
+    return arguments.length ? (startAngle = typeof _ === "function" ? _ : constant$1(+_), pie) : startAngle;
   };
 
   pie.endAngle = function(_) {
-    return arguments.length ? (endAngle = typeof _ === "function" ? _ : constant$2(+_), pie) : endAngle;
+    return arguments.length ? (endAngle = typeof _ === "function" ? _ : constant$1(+_), pie) : endAngle;
   };
 
   pie.padAngle = function(_) {
-    return arguments.length ? (padAngle = typeof _ === "function" ? _ : constant$2(+_), pie) : padAngle;
+    return arguments.length ? (padAngle = typeof _ === "function" ? _ : constant$1(+_), pie) : padAngle;
   };
 
   return pie;
@@ -5985,8 +5985,8 @@ var symbols = [
 ];
 
 var symbol = function() {
-  var type = constant$2(circle),
-      size = constant$2(64),
+  var type = constant$1(circle),
+      size = constant$1(64),
       context = null;
 
   function symbol() {
@@ -5997,11 +5997,11 @@ var symbol = function() {
   }
 
   symbol.type = function(_) {
-    return arguments.length ? (type = typeof _ === "function" ? _ : constant$2(_), symbol) : type;
+    return arguments.length ? (type = typeof _ === "function" ? _ : constant$1(_), symbol) : type;
   };
 
   symbol.size = function(_) {
-    return arguments.length ? (size = typeof _ === "function" ? _ : constant$2(+_), symbol) : size;
+    return arguments.length ? (size = typeof _ === "function" ? _ : constant$1(+_), symbol) : size;
   };
 
   symbol.context = function(_) {
@@ -6195,7 +6195,7 @@ Bundle.prototype = {
   }
 };
 
-var bundle = (function custom(beta) {
+var bundle = ((function custom(beta) {
 
   function bundle(context) {
     return beta === 1 ? new Basis(context) : new Bundle(context, beta);
@@ -6206,7 +6206,7 @@ var bundle = (function custom(beta) {
   };
 
   return bundle;
-})(0.85);
+}))(0.85);
 
 function point$1(that, x, y) {
   that._context.bezierCurveTo(
@@ -6257,7 +6257,7 @@ Cardinal.prototype = {
   }
 };
 
-var cardinal = (function custom(tension) {
+var cardinal = ((function custom(tension) {
 
   function cardinal(context) {
     return new Cardinal(context, tension);
@@ -6268,7 +6268,7 @@ var cardinal = (function custom(tension) {
   };
 
   return cardinal;
-})(0);
+}))(0);
 
 function CardinalClosed(context, tension) {
   this._context = context;
@@ -6316,7 +6316,7 @@ CardinalClosed.prototype = {
   }
 };
 
-var cardinalClosed = (function custom(tension) {
+var cardinalClosed = ((function custom(tension) {
 
   function cardinal(context) {
     return new CardinalClosed(context, tension);
@@ -6327,7 +6327,7 @@ var cardinalClosed = (function custom(tension) {
   };
 
   return cardinal;
-})(0);
+}))(0);
 
 function CardinalOpen(context, tension) {
   this._context = context;
@@ -6364,7 +6364,7 @@ CardinalOpen.prototype = {
   }
 };
 
-var cardinalOpen = (function custom(tension) {
+var cardinalOpen = ((function custom(tension) {
 
   function cardinal(context) {
     return new CardinalOpen(context, tension);
@@ -6375,7 +6375,7 @@ var cardinalOpen = (function custom(tension) {
   };
 
   return cardinal;
-})(0);
+}))(0);
 
 function point$2(that, x, y) {
   var x1 = that._x1,
@@ -6450,7 +6450,7 @@ CatmullRom.prototype = {
   }
 };
 
-var catmullRom = (function custom(alpha) {
+var catmullRom = ((function custom(alpha) {
 
   function catmullRom(context) {
     return alpha ? new CatmullRom(context, alpha) : new Cardinal(context, 0);
@@ -6461,7 +6461,7 @@ var catmullRom = (function custom(alpha) {
   };
 
   return catmullRom;
-})(0.5);
+}))(0.5);
 
 function CatmullRomClosed(context, alpha) {
   this._context = context;
@@ -6521,7 +6521,7 @@ CatmullRomClosed.prototype = {
   }
 };
 
-var catmullRomClosed = (function custom(alpha) {
+var catmullRomClosed = ((function custom(alpha) {
 
   function catmullRom(context) {
     return alpha ? new CatmullRomClosed(context, alpha) : new CardinalClosed(context, 0);
@@ -6532,7 +6532,7 @@ var catmullRomClosed = (function custom(alpha) {
   };
 
   return catmullRom;
-})(0.5);
+}))(0.5);
 
 function CatmullRomOpen(context, alpha) {
   this._context = context;
@@ -6581,7 +6581,7 @@ CatmullRomOpen.prototype = {
   }
 };
 
-var catmullRomOpen = (function custom(alpha) {
+var catmullRomOpen = ((function custom(alpha) {
 
   function catmullRom(context) {
     return alpha ? new CatmullRomOpen(context, alpha) : new CardinalOpen(context, 0);
@@ -6592,7 +6592,7 @@ var catmullRomOpen = (function custom(alpha) {
   };
 
   return catmullRom;
-})(0.5);
+}))(0.5);
 
 function LinearClosed(context) {
   this._context = context;
@@ -6866,7 +6866,7 @@ function stackValue(d, key) {
 }
 
 var stack = function() {
-  var keys = constant$2([]),
+  var keys = constant$1([]),
       order = none$1,
       offset = none,
       value = stackValue;
@@ -6896,15 +6896,15 @@ var stack = function() {
   }
 
   stack.keys = function(_) {
-    return arguments.length ? (keys = typeof _ === "function" ? _ : constant$2(slice$2.call(_)), stack) : keys;
+    return arguments.length ? (keys = typeof _ === "function" ? _ : constant$1(slice$2.call(_)), stack) : keys;
   };
 
   stack.value = function(_) {
-    return arguments.length ? (value = typeof _ === "function" ? _ : constant$2(+_), stack) : value;
+    return arguments.length ? (value = typeof _ === "function" ? _ : constant$1(+_), stack) : value;
   };
 
   stack.order = function(_) {
-    return arguments.length ? (order = _ == null ? none$1 : typeof _ === "function" ? _ : constant$2(slice$2.call(_)), stack) : order;
+    return arguments.length ? (order = _ == null ? none$1 : typeof _ === "function" ? _ : constant$1(slice$2.call(_)), stack) : order;
   };
 
   stack.offset = function(_) {
@@ -7537,7 +7537,7 @@ var basisClosed$1 = function(values) {
   };
 };
 
-var constant$3 = function(x) {
+var constant$2 = function(x) {
   return function() {
     return x;
   };
@@ -7557,21 +7557,21 @@ function exponential$1(a, b, y) {
 
 function hue(a, b) {
   var d = b - a;
-  return d ? linear$1(a, d > 180 || d < -180 ? d - 360 * Math.round(d / 360) : d) : constant$3(isNaN(a) ? b : a);
+  return d ? linear$1(a, d > 180 || d < -180 ? d - 360 * Math.round(d / 360) : d) : constant$2(isNaN(a) ? b : a);
 }
 
 function gamma(y) {
   return (y = +y) === 1 ? nogamma : function(a, b) {
-    return b - a ? exponential$1(a, b, y) : constant$3(isNaN(a) ? b : a);
+    return b - a ? exponential$1(a, b, y) : constant$2(isNaN(a) ? b : a);
   };
 }
 
 function nogamma(a, b) {
   var d = b - a;
-  return d ? linear$1(a, d) : constant$3(isNaN(a) ? b : a);
+  return d ? linear$1(a, d) : constant$2(isNaN(a) ? b : a);
 }
 
-var interpolateRgb = (function rgbGamma(y) {
+var interpolateRgb = ((function rgbGamma(y) {
   var color$$1 = gamma(y);
 
   function rgb$$1(start, end) {
@@ -7591,7 +7591,7 @@ var interpolateRgb = (function rgbGamma(y) {
   rgb$$1.gamma = rgbGamma;
 
   return rgb$$1;
-})(1);
+}))(1);
 
 function rgbSpline(spline) {
   return function(colors) {
@@ -7738,7 +7738,7 @@ var interpolateString = function(a, b) {
 
 var interpolate = function(a, b) {
   var t = typeof b, c;
-  return b == null || t === "boolean" ? constant$3(b)
+  return b == null || t === "boolean" ? constant$2(b)
       : (t === "number" ? interpolateNumber
       : t === "string" ? ((c = color(b)) ? (b = c, interpolateRgb) : interpolateString)
       : b instanceof color ? interpolateRgb
@@ -9921,7 +9921,7 @@ function point$4() {
   return pointish(band().paddingInner(1));
 }
 
-var constant$4 = function(x) {
+var constant$3 = function(x) {
   return function() {
     return x;
   };
@@ -9936,7 +9936,7 @@ var unit = [0, 1];
 function deinterpolateLinear(a, b) {
   return (b -= (a = +a))
       ? function(x) { return (x - a) / b; }
-      : constant$4(b);
+      : constant$3(b);
 }
 
 function deinterpolateClamp(deinterpolate) {
@@ -10153,7 +10153,7 @@ var nice = function(domain, interval) {
 function deinterpolate(a, b) {
   return (b = Math.log(b / a))
       ? function(x) { return Math.log(x / a) / b; }
-      : constant$4(b);
+      : constant$3(b);
 }
 
 function reinterpolate(a, b) {
@@ -10285,7 +10285,7 @@ function pow() {
   function deinterpolate(a, b) {
     return (b = raise(b, exponent) - (a = raise(a, exponent)))
         ? function(x) { return (raise(x, exponent) - a) / b; }
-        : constant$4(b);
+        : constant$3(b);
   }
 
   function reinterpolate(a, b) {
@@ -10948,7 +10948,7 @@ EnterNode.prototype = {
   querySelectorAll: function(selector) { return this._parent.querySelectorAll(selector); }
 };
 
-var constant$5 = function(x) {
+var constant$4 = function(x) {
   return function() {
     return x;
   };
@@ -11037,7 +11037,7 @@ var selection_data = function(value, key) {
       parents = this._parents,
       groups = this._groups;
 
-  if (typeof value !== "function") value = constant$5(value);
+  if (typeof value !== "function") value = constant$4(value);
 
   for (var m = groups.length, update = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
     var parent = parents[j],
@@ -13085,7 +13085,7 @@ function constantZero() {
   return 0;
 }
 
-var constant$6 = function(x) {
+var constant$5 = function(x) {
   return function() {
     return x;
   };
@@ -13125,7 +13125,7 @@ var index = function() {
   };
 
   pack.padding = function(x) {
-    return arguments.length ? (padding = typeof x === "function" ? x : constant$6(+x), pack) : padding;
+    return arguments.length ? (padding = typeof x === "function" ? x : constant$5(+x), pack) : padding;
   };
 
   return pack;
@@ -13608,7 +13608,7 @@ function squarifyRatio(ratio, parent, x0, y0, x1, y1) {
   return rows;
 }
 
-var squarify = (function custom(ratio) {
+var squarify = ((function custom(ratio) {
 
   function squarify(parent, x0, y0, x1, y1) {
     squarifyRatio(ratio, parent, x0, y0, x1, y1);
@@ -13619,7 +13619,7 @@ var squarify = (function custom(ratio) {
   };
 
   return squarify;
-})(phi);
+}))(phi);
 
 var index$1 = function() {
   var tile = squarify,
@@ -13685,7 +13685,7 @@ var index$1 = function() {
   };
 
   treemap.paddingInner = function(x) {
-    return arguments.length ? (paddingInner = typeof x === "function" ? x : constant$6(+x), treemap) : paddingInner;
+    return arguments.length ? (paddingInner = typeof x === "function" ? x : constant$5(+x), treemap) : paddingInner;
   };
 
   treemap.paddingOuter = function(x) {
@@ -13693,19 +13693,19 @@ var index$1 = function() {
   };
 
   treemap.paddingTop = function(x) {
-    return arguments.length ? (paddingTop = typeof x === "function" ? x : constant$6(+x), treemap) : paddingTop;
+    return arguments.length ? (paddingTop = typeof x === "function" ? x : constant$5(+x), treemap) : paddingTop;
   };
 
   treemap.paddingRight = function(x) {
-    return arguments.length ? (paddingRight = typeof x === "function" ? x : constant$6(+x), treemap) : paddingRight;
+    return arguments.length ? (paddingRight = typeof x === "function" ? x : constant$5(+x), treemap) : paddingRight;
   };
 
   treemap.paddingBottom = function(x) {
-    return arguments.length ? (paddingBottom = typeof x === "function" ? x : constant$6(+x), treemap) : paddingBottom;
+    return arguments.length ? (paddingBottom = typeof x === "function" ? x : constant$5(+x), treemap) : paddingBottom;
   };
 
   treemap.paddingLeft = function(x) {
-    return arguments.length ? (paddingLeft = typeof x === "function" ? x : constant$6(+x), treemap) : paddingLeft;
+    return arguments.length ? (paddingLeft = typeof x === "function" ? x : constant$5(+x), treemap) : paddingLeft;
   };
 
   return treemap;
@@ -13760,7 +13760,7 @@ var sliceDice = function(parent, x0, y0, x1, y1) {
   (parent.depth & 1 ? treemapSlice : treemapDice)(parent, x0, y0, x1, y1);
 };
 
-var resquarify = (function custom(ratio) {
+var resquarify = ((function custom(ratio) {
 
   function resquarify(parent, x0, y0, x1, y1) {
     if ((rows = parent._squarify) && (rows.ratio === ratio)) {
@@ -13791,7 +13791,7 @@ var resquarify = (function custom(ratio) {
   };
 
   return resquarify;
-})(phi);
+}))(phi);
 
 var center$1 = function(x, y) {
   var nodes;
@@ -13830,7 +13830,7 @@ var center$1 = function(x, y) {
   return force;
 };
 
-var constant$7 = function(x) {
+var constant$6 = function(x) {
   return function() {
     return x;
   };
@@ -13854,7 +13854,7 @@ var collide = function(radius) {
       strength = 1,
       iterations = 1;
 
-  if (typeof radius !== "function") radius = constant$7(radius == null ? 1 : +radius);
+  if (typeof radius !== "function") radius = constant$6(radius == null ? 1 : +radius);
 
   function force() {
     var i, n = nodes.length,
@@ -13929,7 +13929,7 @@ var collide = function(radius) {
   };
 
   force.radius = function(_) {
-    return arguments.length ? (radius = typeof _ === "function" ? _ : constant$7(+_), initialize(), force) : radius;
+    return arguments.length ? (radius = typeof _ === "function" ? _ : constant$6(+_), initialize(), force) : radius;
   };
 
   return force;
@@ -13949,7 +13949,7 @@ var link = function(links) {
   var id = index$2,
       strength = defaultStrength,
       strengths,
-      distance = constant$7(30),
+      distance = constant$6(30),
       distances,
       nodes,
       count,
@@ -14038,11 +14038,11 @@ var link = function(links) {
   };
 
   force.strength = function(_) {
-    return arguments.length ? (strength = typeof _ === "function" ? _ : constant$7(+_), initializeStrength(), force) : strength;
+    return arguments.length ? (strength = typeof _ === "function" ? _ : constant$6(+_), initializeStrength(), force) : strength;
   };
 
   force.distance = function(_) {
-    return arguments.length ? (distance = typeof _ === "function" ? _ : constant$7(+_), initializeDistance(), force) : distance;
+    return arguments.length ? (distance = typeof _ === "function" ? _ : constant$6(+_), initializeDistance(), force) : distance;
   };
 
   return force;
@@ -14192,7 +14192,7 @@ var manyBody = function() {
   var nodes,
       node,
       alpha,
-      strength = constant$7(-30),
+      strength = constant$6(-30),
       strengths,
       distanceMin2 = 1,
       distanceMax2 = Infinity,
@@ -14280,7 +14280,7 @@ var manyBody = function() {
   };
 
   force.strength = function(_) {
-    return arguments.length ? (strength = typeof _ === "function" ? _ : constant$7(+_), initialize(), force) : strength;
+    return arguments.length ? (strength = typeof _ === "function" ? _ : constant$6(+_), initialize(), force) : strength;
   };
 
   force.distanceMin = function(_) {
@@ -14299,12 +14299,12 @@ var manyBody = function() {
 };
 
 var x$3 = function(x) {
-  var strength = constant$7(0.1),
+  var strength = constant$6(0.1),
       nodes,
       strengths,
       xz;
 
-  if (typeof x !== "function") x = constant$7(x == null ? 0 : +x);
+  if (typeof x !== "function") x = constant$6(x == null ? 0 : +x);
 
   function force(alpha) {
     for (var i = 0, n = nodes.length, node; i < n; ++i) {
@@ -14328,23 +14328,23 @@ var x$3 = function(x) {
   };
 
   force.strength = function(_) {
-    return arguments.length ? (strength = typeof _ === "function" ? _ : constant$7(+_), initialize(), force) : strength;
+    return arguments.length ? (strength = typeof _ === "function" ? _ : constant$6(+_), initialize(), force) : strength;
   };
 
   force.x = function(_) {
-    return arguments.length ? (x = typeof _ === "function" ? _ : constant$7(+_), initialize(), force) : x;
+    return arguments.length ? (x = typeof _ === "function" ? _ : constant$6(+_), initialize(), force) : x;
   };
 
   return force;
 };
 
 var y$3 = function(y) {
-  var strength = constant$7(0.1),
+  var strength = constant$6(0.1),
       nodes,
       strengths,
       yz;
 
-  if (typeof y !== "function") y = constant$7(y == null ? 0 : +y);
+  if (typeof y !== "function") y = constant$6(y == null ? 0 : +y);
 
   function force(alpha) {
     for (var i = 0, n = nodes.length, node; i < n; ++i) {
@@ -14368,11 +14368,11 @@ var y$3 = function(y) {
   };
 
   force.strength = function(_) {
-    return arguments.length ? (strength = typeof _ === "function" ? _ : constant$7(+_), initialize(), force) : strength;
+    return arguments.length ? (strength = typeof _ === "function" ? _ : constant$6(+_), initialize(), force) : strength;
   };
 
   force.y = function(_) {
-    return arguments.length ? (y = typeof _ === "function" ? _ : constant$7(+_), initialize(), force) : y;
+    return arguments.length ? (y = typeof _ === "function" ? _ : constant$6(+_), initialize(), force) : y;
   };
 
   return force;
@@ -14413,7 +14413,7 @@ function yesdrag(view, noclick) {
   }
 }
 
-var constant$8 = function(x) {
+var constant$7 = function(x) {
   return function() {
     return x;
   };
@@ -14556,15 +14556,15 @@ var drag = function() {
   }
 
   drag.filter = function(_) {
-    return arguments.length ? (filter = typeof _ === "function" ? _ : constant$8(!!_), drag) : filter;
+    return arguments.length ? (filter = typeof _ === "function" ? _ : constant$7(!!_), drag) : filter;
   };
 
   drag.container = function(_) {
-    return arguments.length ? (container = typeof _ === "function" ? _ : constant$8(_), drag) : container;
+    return arguments.length ? (container = typeof _ === "function" ? _ : constant$7(_), drag) : container;
   };
 
   drag.subject = function(_) {
-    return arguments.length ? (subject = typeof _ === "function" ? _ : constant$8(_), drag) : subject;
+    return arguments.length ? (subject = typeof _ === "function" ? _ : constant$7(_), drag) : subject;
   };
 
   drag.on = function() {
@@ -14575,7 +14575,7 @@ var drag = function() {
   return drag;
 };
 
-var constant$9 = function(x) {
+var constant$8 = function(x) {
   return function() {
     return x;
   };
@@ -15460,10 +15460,11 @@ Diagram.prototype = {
         edges = this.edges;
 
     this.cells.forEach(function(cell, i) {
+      if (!(m = (halfedges = cell.halfedges).length)) return;
       var site = cell.site,
-          halfedges = cell.halfedges,
+          halfedges,
           j = -1,
-          m = halfedges.length,
+          m,
           s0,
           e1 = edges[halfedges[m - 1]],
           s1 = e1.left === site ? e1.right : e1.left;
@@ -15493,21 +15494,19 @@ Diagram.prototype = {
   },
 
   find: function(x, y, radius) {
-    var that = this,
-        i0, i1 = that._found || 0,
-        cell = that.cells[i1] || that.cells[i1 = 0],
-        dx = x - cell.site[0],
-        dy = y - cell.site[1],
-        d2 = dx * dx + dy * dy;
+    var that = this, i0, i1 = that._found || 0, n = that.cells.length, cell;
 
+    // Use the previously-found cell, or start with an arbitrary one.
+    while (!(cell = that.cells[i1])) if (++i1 >= n) return null;
+    var dx = x - cell.site[0], dy = y - cell.site[1], d2 = dx * dx + dy * dy;
+
+    // Traverse the half-edges to find a closer cell, if any.
     do {
       cell = that.cells[i0 = i1], i1 = null;
       cell.halfedges.forEach(function(e) {
         var edge = that.edges[e], v = edge.left;
         if ((v === cell.site || !v) && !(v = edge.right)) return;
-        var vx = x - v[0],
-            vy = y - v[1],
-            v2 = vx * vx + vy * vy;
+        var vx = x - v[0], vy = y - v[1], v2 = vx * vx + vy * vy;
         if (v2 < d2) d2 = v2, i1 = v.index;
       });
     } while (i1 !== null);
@@ -15545,11 +15544,11 @@ var voronoi = function() {
   };
 
   voronoi.x = function(_) {
-    return arguments.length ? (x$$1 = typeof _ === "function" ? _ : constant$9(+_), voronoi) : x$$1;
+    return arguments.length ? (x$$1 = typeof _ === "function" ? _ : constant$8(+_), voronoi) : x$$1;
   };
 
   voronoi.y = function(_) {
-    return arguments.length ? (y$$1 = typeof _ === "function" ? _ : constant$9(+_), voronoi) : y$$1;
+    return arguments.length ? (y$$1 = typeof _ === "function" ? _ : constant$8(+_), voronoi) : y$$1;
   };
 
   voronoi.extent = function(_) {
@@ -15563,7 +15562,7 @@ var voronoi = function() {
   return voronoi;
 };
 
-var constant$10 = function(x) {
+var constant$9 = function(x) {
   return function() {
     return x;
   };
@@ -15902,13 +15901,14 @@ var zoom = function() {
     if (!filter.apply(this, arguments)) return;
     var g = gesture(this, arguments),
         touches$$1 = exports.event.changedTouches,
+        started,
         n = touches$$1.length, i, t, p;
 
     nopropagation$1();
     for (i = 0; i < n; ++i) {
       t = touches$$1[i], p = touch(this, touches$$1, t.identifier);
       p = [p, this.__zoom.invert(p), t.identifier];
-      if (!g.touch0) g.touch0 = p;
+      if (!g.touch0) g.touch0 = p, started = true;
       else if (!g.touch1) g.touch1 = p;
     }
 
@@ -15923,7 +15923,7 @@ var zoom = function() {
       }
     }
 
-    if (exports.event.touches.length === n) {
+    if (started) {
       touchstarting = setTimeout(function() { touchstarting = null; }, touchDelay);
       interrupt(this);
       g.start();
@@ -15975,11 +15975,11 @@ var zoom = function() {
   }
 
   zoom.filter = function(_) {
-    return arguments.length ? (filter = typeof _ === "function" ? _ : constant$10(!!_), zoom) : filter;
+    return arguments.length ? (filter = typeof _ === "function" ? _ : constant$9(!!_), zoom) : filter;
   };
 
   zoom.extent = function(_) {
-    return arguments.length ? (extent = typeof _ === "function" ? _ : constant$10([[+_[0][0], +_[0][1]], [+_[1][0], +_[1][1]]]), zoom) : extent;
+    return arguments.length ? (extent = typeof _ === "function" ? _ : constant$9([[+_[0][0], +_[0][1]], [+_[1][0], +_[1][1]]]), zoom) : extent;
   };
 
   zoom.scaleExtent = function(_) {
@@ -16006,7 +16006,7 @@ var zoom = function() {
   return zoom;
 };
 
-var constant$11 = function(x) {
+var constant$10 = function(x) {
   return function() {
     return x;
   };
@@ -16539,11 +16539,11 @@ function brush$1(dim) {
   }
 
   brush.extent = function(_) {
-    return arguments.length ? (extent = typeof _ === "function" ? _ : constant$11([[+_[0][0], +_[0][1]], [+_[1][0], +_[1][1]]]), brush) : extent;
+    return arguments.length ? (extent = typeof _ === "function" ? _ : constant$10([[+_[0][0], +_[0][1]], [+_[1][0], +_[1][1]]]), brush) : extent;
   };
 
   brush.filter = function(_) {
-    return arguments.length ? (filter = typeof _ === "function" ? _ : constant$11(!!_), brush) : filter;
+    return arguments.length ? (filter = typeof _ === "function" ? _ : constant$10(!!_), brush) : filter;
   };
 
   brush.handleSize = function(_) {
@@ -16686,7 +16686,7 @@ var chord = function() {
 
 var slice$5 = Array.prototype.slice;
 
-var constant$12 = function(x) {
+var constant$11 = function(x) {
   return function() {
     return x;
   };
@@ -16749,15 +16749,15 @@ var ribbon = function() {
   }
 
   ribbon.radius = function(_) {
-    return arguments.length ? (radius = typeof _ === "function" ? _ : constant$12(+_), ribbon) : radius;
+    return arguments.length ? (radius = typeof _ === "function" ? _ : constant$11(+_), ribbon) : radius;
   };
 
   ribbon.startAngle = function(_) {
-    return arguments.length ? (startAngle = typeof _ === "function" ? _ : constant$12(+_), ribbon) : startAngle;
+    return arguments.length ? (startAngle = typeof _ === "function" ? _ : constant$11(+_), ribbon) : startAngle;
   };
 
   ribbon.endAngle = function(_) {
-    return arguments.length ? (endAngle = typeof _ === "function" ? _ : constant$12(+_), ribbon) : endAngle;
+    return arguments.length ? (endAngle = typeof _ === "function" ? _ : constant$11(+_), ribbon) : endAngle;
   };
 
   ribbon.source = function(_) {
@@ -17347,7 +17347,7 @@ var centroid$1 = function(object) {
   return [atan2(y, x) * degrees$1, asin$1(z / sqrt$1(m)) * degrees$1];
 };
 
-var constant$13 = function(x) {
+var constant$12 = function(x) {
   return function() {
     return x;
   };
@@ -17469,9 +17469,9 @@ function circleRadius(cosRadius, point) {
 }
 
 var circle$1 = function() {
-  var center = constant$13([0, 0]),
-      radius = constant$13(90),
-      precision = constant$13(6),
+  var center = constant$12([0, 0]),
+      radius = constant$12(90),
+      precision = constant$12(6),
       ring,
       rotate,
       stream = {point: point};
@@ -17494,15 +17494,15 @@ var circle$1 = function() {
   }
 
   circle.center = function(_) {
-    return arguments.length ? (center = typeof _ === "function" ? _ : constant$13([+_[0], +_[1]]), circle) : center;
+    return arguments.length ? (center = typeof _ === "function" ? _ : constant$12([+_[0], +_[1]]), circle) : center;
   };
 
   circle.radius = function(_) {
-    return arguments.length ? (radius = typeof _ === "function" ? _ : constant$13(+_), circle) : radius;
+    return arguments.length ? (radius = typeof _ === "function" ? _ : constant$12(+_), circle) : radius;
   };
 
   circle.precision = function(_) {
-    return arguments.length ? (precision = typeof _ === "function" ? _ : constant$13(+_), circle) : precision;
+    return arguments.length ? (precision = typeof _ === "function" ? _ : constant$12(+_), circle) : precision;
   };
 
   return circle;
@@ -20729,12 +20729,18 @@ module.exports = hyphenateStyleName;
  * will remain to ensure logic does not differ in production.
  */
 
-function invariant(condition, format, a, b, c, d, e, f) {
-  if (process.env.NODE_ENV !== 'production') {
+var validateFormat = function validateFormat(format) {};
+
+if (process.env.NODE_ENV !== 'production') {
+  validateFormat = function validateFormat(format) {
     if (format === undefined) {
       throw new Error('invariant requires an error message argument');
     }
-  }
+  };
+}
+
+function invariant(condition, format, a, b, c, d, e, f) {
+  validateFormat(format);
 
   if (!condition) {
     var error;
@@ -35384,17 +35390,6 @@ var fourArgumentPooler = function (a1, a2, a3, a4) {
   }
 };
 
-var fiveArgumentPooler = function (a1, a2, a3, a4, a5) {
-  var Klass = this;
-  if (Klass.instancePool.length) {
-    var instance = Klass.instancePool.pop();
-    Klass.call(instance, a1, a2, a3, a4, a5);
-    return instance;
-  } else {
-    return new Klass(a1, a2, a3, a4, a5);
-  }
-};
-
 var standardReleaser = function (instance) {
   var Klass = this;
   !(instance instanceof Klass) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Trying to release an instance into a pool of a different type.') : _prodInvariant('25') : void 0;
@@ -35434,8 +35429,7 @@ var PooledClass = {
   oneArgumentPooler: oneArgumentPooler,
   twoArgumentPooler: twoArgumentPooler,
   threeArgumentPooler: threeArgumentPooler,
-  fourArgumentPooler: fourArgumentPooler,
-  fiveArgumentPooler: fiveArgumentPooler
+  fourArgumentPooler: fourArgumentPooler
 };
 
 module.exports = PooledClass;
@@ -36238,7 +36232,7 @@ var ReactCompositeComponent = {
       // Since plain JS classes are defined without any special initialization
       // logic, we can not catch common errors early. Therefore, we have to
       // catch them here, at initialization time, instead.
-      process.env.NODE_ENV !== 'production' ? warning(!inst.getInitialState || inst.getInitialState.isReactClassApproved, 'getInitialState was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Did you mean to define a state property instead?', this.getName() || 'a component') : void 0;
+      process.env.NODE_ENV !== 'production' ? warning(!inst.getInitialState || inst.getInitialState.isReactClassApproved || inst.state, 'getInitialState was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Did you mean to define a state property instead?', this.getName() || 'a component') : void 0;
       process.env.NODE_ENV !== 'production' ? warning(!inst.getDefaultProps || inst.getDefaultProps.isReactClassApproved, 'getDefaultProps was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Use a static property to define defaultProps instead.', this.getName() || 'a component') : void 0;
       process.env.NODE_ENV !== 'production' ? warning(!inst.propTypes, 'propTypes was defined as an instance property on %s. Use a static ' + 'property to define propTypes instead.', this.getName() || 'a component') : void 0;
       process.env.NODE_ENV !== 'production' ? warning(!inst.contextTypes, 'contextTypes was defined as an instance property on %s. Use a ' + 'static property to define contextTypes instead.', this.getName() || 'a component') : void 0;
@@ -37704,12 +37698,18 @@ ReactDOMComponent.Mixin = {
     } else {
       var contentToUse = CONTENT_TYPES[typeof props.children] ? props.children : null;
       var childrenToUse = contentToUse != null ? null : props.children;
+      // TODO: Validate that text is allowed as a child of this node
       if (contentToUse != null) {
-        // TODO: Validate that text is allowed as a child of this node
-        if (process.env.NODE_ENV !== 'production') {
-          setAndValidateContentChildDev.call(this, contentToUse);
+        // Avoid setting textContent when the text is empty. In IE11 setting
+        // textContent on a text area will cause the placeholder to not
+        // show within the textarea until it has been focused and blurred again.
+        // https://github.com/facebook/react/issues/6731#issuecomment-254874553
+        if (contentToUse !== '') {
+          if (process.env.NODE_ENV !== 'production') {
+            setAndValidateContentChildDev.call(this, contentToUse);
+          }
+          DOMLazyTree.queueText(lazyTree, contentToUse);
         }
-        DOMLazyTree.queueText(lazyTree, contentToUse);
       } else if (childrenToUse != null) {
         var mountImages = this.mountChildren(childrenToUse, transaction, context);
         for (var i = 0; i < mountImages.length; i++) {
@@ -38061,6 +38061,13 @@ var Flags = ReactDOMComponentFlags;
 var internalInstanceKey = '__reactInternalInstance$' + Math.random().toString(36).slice(2);
 
 /**
+ * Check if a given node should be cached.
+ */
+function shouldPrecacheNode(node, nodeID) {
+  return node.nodeType === 1 && node.getAttribute(ATTR_NAME) === String(nodeID) || node.nodeType === 8 && node.nodeValue === ' react-text: ' + nodeID + ' ' || node.nodeType === 8 && node.nodeValue === ' react-empty: ' + nodeID + ' ';
+}
+
+/**
  * Drill down (through composites and empty components) until we get a host or
  * host text component.
  *
@@ -38125,7 +38132,7 @@ function precacheChildNodes(inst, node) {
     }
     // We assume the child nodes are in the same order as the child instances.
     for (; childNode !== null; childNode = childNode.nextSibling) {
-      if (childNode.nodeType === 1 && childNode.getAttribute(ATTR_NAME) === String(childID) || childNode.nodeType === 8 && childNode.nodeValue === ' react-text: ' + childID + ' ' || childNode.nodeType === 8 && childNode.nodeValue === ' react-empty: ' + childID + ' ') {
+      if (shouldPrecacheNode(childNode, childID)) {
         precacheNode(childInst, childNode);
         continue outer;
       }
@@ -38533,7 +38540,17 @@ var ReactDOMInput = {
       }
     } else {
       if (props.value == null && props.defaultValue != null) {
-        node.defaultValue = '' + props.defaultValue;
+        // In Chrome, assigning defaultValue to certain input types triggers input validation.
+        // For number inputs, the display value loses trailing decimal points. For email inputs,
+        // Chrome raises "The specified value <x> is not a valid email address".
+        //
+        // Here we check to see if the defaultValue has actually changed, avoiding these problems
+        // when the user is inputting text
+        //
+        // https://github.com/facebook/react/issues/7253
+        if (node.defaultValue !== '' + props.defaultValue) {
+          node.defaultValue = '' + props.defaultValue;
+        }
       }
       if (props.checked == null && props.defaultChecked != null) {
         node.defaultChecked = !!props.defaultChecked;
@@ -39628,9 +39645,15 @@ var ReactDOMTextarea = {
     // This is in postMount because we need access to the DOM node, which is not
     // available until after the component has mounted.
     var node = ReactDOMComponentTree.getNodeFromInstance(inst);
+    var textContent = node.textContent;
 
-    // Warning: node.value may be the empty string at this point (IE11) if placeholder is set.
-    node.value = node.textContent; // Detach value from defaultValue
+    // Only set node.value if textContent is equal to the expected
+    // initial value. In IE10/IE11 there is a bug where the placeholder attribute
+    // will populate textContent as well.
+    // https://developer.microsoft.com/microsoft-edge/platform/issues/101525/
+    if (textContent === inst._wrapperState.initialValue) {
+      node.value = textContent;
+    }
   }
 };
 
@@ -40765,14 +40788,11 @@ module.exports = ReactFeatureFlags;
 
 'use strict';
 
-var _prodInvariant = require('./reactProdInvariant'),
-    _assign = require('object-assign');
+var _prodInvariant = require('./reactProdInvariant');
 
 var invariant = require('fbjs/lib/invariant');
 
 var genericComponentClass = null;
-// This registry keeps track of wrapper classes around host tags.
-var tagToComponentClass = {};
 var textComponentClass = null;
 
 var ReactHostComponentInjection = {
@@ -40785,11 +40805,6 @@ var ReactHostComponentInjection = {
   // rendered as props.
   injectTextComponentClass: function (componentClass) {
     textComponentClass = componentClass;
-  },
-  // This accepts a keyed object with classes as values. Each key represents a
-  // tag. That particular tag will use this class instead of the generic one.
-  injectComponentClasses: function (componentClasses) {
-    _assign(tagToComponentClass, componentClasses);
   }
 };
 
@@ -40829,7 +40844,7 @@ var ReactHostComponent = {
 
 module.exports = ReactHostComponent;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":173,"_process":51,"fbjs/lib/invariant":40,"object-assign":49}],111:[function(require,module,exports){
+},{"./reactProdInvariant":173,"_process":51,"fbjs/lib/invariant":40}],111:[function(require,module,exports){
 /**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -43524,7 +43539,7 @@ module.exports = ReactUpdates;
 
 'use strict';
 
-module.exports = '15.4.1';
+module.exports = '15.4.2';
 },{}],132:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -46546,7 +46561,17 @@ function instantiateReactComponent(node, shouldHaveDebugID) {
     instance = ReactEmptyComponent.create(instantiateReactComponent);
   } else if (typeof node === 'object') {
     var element = node;
-    !(element && (typeof element.type === 'function' || typeof element.type === 'string')) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s', element.type == null ? element.type : typeof element.type, getDeclarationErrorAddendum(element._owner)) : _prodInvariant('130', element.type == null ? element.type : typeof element.type, getDeclarationErrorAddendum(element._owner)) : void 0;
+    var type = element.type;
+    if (typeof type !== 'function' && typeof type !== 'string') {
+      var info = '';
+      if (process.env.NODE_ENV !== 'production') {
+        if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
+          info += ' You likely forgot to export your component from the file ' + 'it\'s defined in.';
+        }
+      }
+      info += getDeclarationErrorAddendum(element._owner);
+      !false ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s', type == null ? type : typeof type, info) : _prodInvariant('130', type == null ? type : typeof type, info) : void 0;
+    }
 
     // Special case string values
     if (typeof element.type === 'string') {
@@ -49720,7 +49745,14 @@ var ReactElementValidator = {
     // We warn in this case but don't throw. We expect the element creation to
     // succeed and there will likely be errors in render.
     if (!validType) {
-      process.env.NODE_ENV !== 'production' ? warning(false, 'React.createElement: type should not be null, undefined, boolean, or ' + 'number. It should be a string (for DOM elements) or a ReactClass ' + '(for composite components).%s', getDeclarationErrorAddendum()) : void 0;
+      if (typeof type !== 'function' && typeof type !== 'string') {
+        var info = '';
+        if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
+          info += ' You likely forgot to export your component from the file ' + 'it\'s defined in.';
+        }
+        info += getDeclarationErrorAddendum();
+        process.env.NODE_ENV !== 'production' ? warning(false, 'React.createElement: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', type == null ? type : typeof type, info) : void 0;
+      }
     }
 
     var element = ReactElement.createElement.apply(this, arguments);

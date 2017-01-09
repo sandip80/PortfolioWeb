@@ -140,7 +140,7 @@ var ProjectViewer = React.createClass({
             {
                 title: "333 Web search engine",
                 code: ["C", "C++"],
-                image: "./img/web.jpg",
+                image: "./img/dummy.jpg",
                 description: "The project was about implementing a web search engine using both C and C++. It uses " +
 				"inverted index structure to process the query.",
                 link: "http://333gle.ngrok.io/"
@@ -148,7 +148,7 @@ var ProjectViewer = React.createClass({
 			{
                 title: "Oracle",
                 code: ["Javascript", "Python"],
-                image: "./img/oracle.jpg",
+                image: "./img/dummy.jpg",
                 description: "This project is a chat bot that assist clients with the up to date information about the " +
 				"stock market. The bot is developed on a node server with a python program running on the backend. The python " +
 				"program analyzes the data extracted from NASDAQ api and uses Sentiment Analysis of IBM Watson api to make " +
@@ -158,7 +158,7 @@ var ProjectViewer = React.createClass({
             {
                 title: "VRifyData",
                 code: ["VR"],
-                image: "./img/vrify.jpg",
+                image: "./img/dummy.jpg",
                 description: "This project is a VR application that creates a new way to experience, analyze, and " +
 				"represent data through virtual reality.",
                 link: "https://github.com/Keydex/VRifyData"
