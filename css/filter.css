@@ -89,6 +89,7 @@
 
 .project-tab {
 	display: inline-block;
+	box-shadow: 0 0 15px 0.5px #0f0f0f;
 }
 
 .project-viewer {

@@ -185,10 +185,7 @@ var ProjectViewer = React.createClass({
 		}
 		return (
 			<div className="project-viewer">
-				<Parallax strength={400}>
-					<Background>
-						<img src="./img/projectviewerb.jpg"/>
-					</Background>
+				<Parallax strength={400} bgImage="./img/projectviewer.jpg">
 					<h2>Projects</h2>
 					<hr />
 					<div className="project-filter-options">

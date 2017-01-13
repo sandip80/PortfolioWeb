@@ -888,12 +888,7 @@ var ProjectViewer = _react2.default.createClass({
 			{ className: "project-viewer" },
 			_react2.default.createElement(
 				_reactParallax.Parallax,
-				{ strength: 400 },
-				_react2.default.createElement(
-					_reactParallax.Background,
-					null,
-					_react2.default.createElement("img", { src: "./img/projectviewerb.jpg" })
-				),
+				{ strength: 400, bgImage: "./img/projectviewer.jpg" },
 				_react2.default.createElement(
 					"h2",
 					null,
