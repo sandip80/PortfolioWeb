@@ -848,7 +848,7 @@ var ProjectViewer = _react2.default.createClass({
 		}, {
 			title: "333 Web search engine",
 			code: ["C", "C++"],
-			image: "./img/dummy.jpg",
+			image: "./img/web.jpg",
 			description: "The project was about implementing a web search engine using both C and C++. It uses " + "inverted index structure to process the query.",
 			link: "http://333gle.ngrok.io/"
 		}, {
