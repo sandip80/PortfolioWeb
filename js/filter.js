@@ -148,7 +148,7 @@ var ProjectViewer = React.createClass({
 			{
                 title: "Oracle",
                 code: ["Javascript", "Python"],
-                image: "./img/dummy.jpg",
+                image: "./img/oracle.jpg",
                 description: "This project is a chat bot that assist clients with the up to date information about the " +
 				"stock market. The bot is developed on a node server with a python program running on the backend. The python " +
 				"program analyzes the data extracted from NASDAQ api and uses Sentiment Analysis of IBM Watson api to make " +
@@ -158,10 +158,17 @@ var ProjectViewer = React.createClass({
             {
                 title: "VRifyData",
                 code: ["VR"],
-                image: "./img/dummy.jpg",
+                image: "./img/vrify.jpg",
                 description: "This project is a VR application that creates a new way to experience, analyze, and " +
 				"represent data through virtual reality.",
                 link: "https://github.com/Keydex/VRifyData"
+            },
+            {
+                title: "Redux",
+                code: ["Javascript"],
+                image: "./img/dummy.jpg",
+                description: "This project is currently under development. It is a 2D HTML5 game built over Phaser framework.",
+                link: "https://github.com/sandip80/redux"
             }
         ];
         var curAttributes = [];
