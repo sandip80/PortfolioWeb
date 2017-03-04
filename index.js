@@ -1,4 +1,5 @@
 global.jQuery = require('jquery');
+require('./js/jquery.nicescroll.min.js')
 require('bootstrap');
 require('./js/smoothslider');
 require('./js/loader');
