@@ -3,11 +3,14 @@
     var d3 = require('d3');
 
     var skillDataset = [
-        { label:'Java', percent:'32.97', count:'15000'},
-        { label:'C++', percent:'24.17', count:'11000'},
-        { label:'Javascript', percent:'19.78', count:'9000'},
-        { label:'C', percent:'17.58', count:'8000'},
-        { label:'Python', percent:'5.50', count:'2500'}
+        { label:'Java', percent:'29.42', count:'20000'},
+        { label:'Javascript', percent:'22.06', count:'15000'},
+        { label:'C++', percent:'16.18', count:'11000'},
+        { label:'C', percent:'11.76', count:'8000'},
+        { label: 'ML', percent:'6.62', count: '4500'},
+        { label:'Ruby', percent:'5.14', count:'3500'},
+        { label:'Racket', percent:'5.14', count:'3500'},
+        { label:'Python', percent:'3.68', count:'2500'}
     ];
 
     var langaugeDataset = [
@@ -168,7 +171,7 @@
             });
 
         var proficiency = ['Elementary proficiency',
-            'Limited proficiency',
+            'Intermediate proficiency',
             'Professional proficiency',
             'Full professional proficiency',
             'Native proficiency'];

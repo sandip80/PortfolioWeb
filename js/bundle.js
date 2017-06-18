@@ -142,7 +142,7 @@ require('./js/contact');
     var $ = require('jquery');
     var d3 = require('d3');
 
-    var skillDataset = [{ label: 'Java', percent: '32.97', count: '15000' }, { label: 'C++', percent: '24.17', count: '11000' }, { label: 'Javascript', percent: '19.78', count: '9000' }, { label: 'C', percent: '17.58', count: '8000' }, { label: 'Python', percent: '5.50', count: '2500' }];
+    var skillDataset = [{ label: 'Java', percent: '29.42', count: '20000' }, { label: 'Javascript', percent: '22.06', count: '15000' }, { label: 'C++', percent: '16.18', count: '11000' }, { label: 'C', percent: '11.76', count: '8000' }, { label: 'ML', percent: '6.62', count: '4500' }, { label: 'Ruby', percent: '5.14', count: '3500' }, { label: 'Racket', percent: '5.14', count: '3500' }, { label: 'Python', percent: '3.68', count: '2500' }];
 
     var langaugeDataset = [{ label: 'English', percent: '31.25', level: '3' }, { label: 'Odia', percent: '31.25', level: '4' }, { label: 'Hindi', percent: '22.44', level: '2' }, { label: 'Japanese', percent: '15.06', level: '1' }];
 
@@ -254,7 +254,7 @@ require('./js/contact');
             };
         });
 
-        var proficiency = ['Elementary proficiency', 'Limited proficiency', 'Professional proficiency', 'Full professional proficiency', 'Native proficiency'];
+        var proficiency = ['Elementary proficiency', 'Intermediate proficiency', 'Professional proficiency', 'Full professional proficiency', 'Native proficiency'];
 
         path2.on('mouseover', function (d) {
             tooltip2.select('.lab').html('<b>Language:</b> ' + d.data.label);

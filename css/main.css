@@ -157,6 +157,7 @@ body a:hover, body a:visited, body a:link, body a:active {
     padding: 23px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    padding-top: 123px;
 }
 
 body hr {
