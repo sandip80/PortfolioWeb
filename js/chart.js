@@ -122,7 +122,7 @@
 
         path1.on('mouseover', function(d) {
             tooltip1.select('.lab').html('<b>Language:</b> ' + d.data.label);
-            tooltip1.select('.count').html('<b>LOC:</b> ' + d.data.count);
+            tooltip1.select('.count').html('<b>SLOC:</b> ' + d.data.count);
             tooltip1.style('display', 'block');
         });
 
