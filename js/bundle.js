@@ -397,7 +397,6 @@ var Form = _react2.default.createClass({
     },
 
     handleSubmit: function handleSubmit(e) {
-        console.log('called');
         (0, _jquery2.default)('#c-form').validate();
         if (!e.isDefaultPrevented()) {
             var url = "contact.php";
@@ -406,15 +405,8 @@ var Form = _react2.default.createClass({
                 type: "POST",
                 url: url,
                 data: (0, _jquery2.default)('#c-form').serialize(),
-                success: function success(data) {
-                    var messageAlert = 'alert-' + data.type;
-                    var messageText = data.message;
-
-                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-                    if (messageAlert && messageText) {
-                        (0, _jquery2.default)('#c-form').find('.messages').html(alertBox);
-                        (0, _jquery2.default)('#c-form')[0].reset();
-                    }
+                always: function always(data) {
+                    (0, _jquery2.default)('#after-form-submit').css({ "visibility": "visible" });
                 }
             });
             return false;
@@ -422,38 +414,23 @@ var Form = _react2.default.createClass({
     },
 
     isValidFirst: function isValidFirst() {
-        if (this.state.first.match(/^([A-Z]*[a-z]*)*$/g)) {
-            return true;
-        }
-        return false;
+        return this.state.first.match(/^([A-Z]*[a-z]*)*$/g);
     },
 
     isValidLast: function isValidLast() {
-        if (this.state.last.match(/^([A-Z]*[a-z]*)*$/g)) {
-            return true;
-        }
-        return false;
+        return this.state.last.match(/^([A-Z]*[a-z]*)*$/g);
     },
 
     isValidEmail: function isValidEmail() {
-        if (this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g)) {
-            return true;
-        }
-        return false;
+        return this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g);
     },
 
     isValidPhone: function isValidPhone() {
-        if (this.state.phone.match(/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/g)) {
-            return true;
-        }
-        return false;
+        return this.state.phone.match(/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/g);
     },
 
     isValidMessage: function isValidMessage() {
-        if (this.state.message.match(/.+/g)) {
-            return true;
-        }
-        return false;
+        return this.state.message.match(/.+/g);
     },
 
     handleFirst: function handleFirst(event) {
@@ -479,7 +456,7 @@ var Form = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             "form",
-            { className: "contact-form", id: "c-form", onSubmit: this.handleSubmit },
+            { className: "contact-form", id: "c-form", method: "POST", action: "contact.php", role: "form", onSubmit: this.handleSubmit },
             _react2.default.createElement("div", { className: "messages" }),
             _react2.default.createElement(
                 "div",
@@ -546,12 +523,18 @@ var Form = _react2.default.createClass({
                 ),
                 _react2.default.createElement(
                     "div",
-                    { className: "col-xs-3 form-group" },
+                    { className: "col-xs-12 form-group" },
                     _react2.default.createElement(
                         "button",
                         { className: "btn btn-primary sharp outline", type: "submit" },
                         "Send Message"
                     )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "col-xs-6", id: "after-form-submit" },
+                    _react2.default.createElement("i", { className: "fa fa-check-circle" }),
+                    "Message sent successfully"
                 ),
                 _react2.default.createElement(
                     "div",

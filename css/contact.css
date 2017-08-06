@@ -112,6 +112,15 @@
     font-size: 13px;
 }
 
+#after-form-submit {
+    font-size: 15px;
+    color: #32CD32;
+    background-color: white;
+    border: 0px solid white;
+    border-radius: 3px;
+    visibility: hidden;
+}
+
 .contact-footer ul, #copyright {
     margin-top: 20px;
 }

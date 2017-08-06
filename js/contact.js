@@ -30,7 +30,6 @@ var Form = React.createClass({
     },
 
     handleSubmit: function(e) {
-        console.log('called');
         $('#c-form').validate();
         if (!e.isDefaultPrevented()) {
             var url = "contact.php";
@@ -39,16 +38,9 @@ var Form = React.createClass({
                 type: "POST",
                 url: url,
                 data: $('#c-form').serialize(),
-                success: function (data)
+                always: function (data)
                 {
-                    var messageAlert = 'alert-' + data.type;
-                    var messageText = data.message;
-
-                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-                    if (messageAlert && messageText) {
-                        $('#c-form').find('.messages').html(alertBox);
-                        $('#c-form')[0].reset();
-                    }
+                    $('#after-form-submit').css({"visibility" : "visible"});
                 }
             });
             return false;
@@ -56,38 +48,23 @@ var Form = React.createClass({
     },
 
     isValidFirst: function() {
-        if (this.state.first.match(/^([A-Z]*[a-z]*)*$/g)) {
-            return true;
-        }
-        return false;
+        return this.state.first.match(/^([A-Z]*[a-z]*)*$/g);
     },
 
     isValidLast: function() {
-        if (this.state.last.match(/^([A-Z]*[a-z]*)*$/g)) {
-            return true;
-        }
-        return false;
+        return this.state.last.match(/^([A-Z]*[a-z]*)*$/g);
     },
 
     isValidEmail: function() {
-        if (this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g)) {
-            return true;
-        }
-        return false;
+        return this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g);
     },
 
     isValidPhone: function() {
-        if (this.state.phone.match(/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/g)) {
-            return true;
-        }
-        return false;
+        return this.state.phone.match(/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/g);
     },
 
     isValidMessage: function() {
-        if (this.state.message.match(/.+/g)) {
-            return true;
-        }
-        return false;
+        return this.state.message.match(/.+/g);
     },
 
     handleFirst: function(event) {
@@ -112,7 +89,7 @@ var Form = React.createClass({
 
     render: function() {
         return(
-            <form className="contact-form" id="c-form" onSubmit={this.handleSubmit}>
+            <form className="contact-form" id="c-form" method="POST" action="contact.php" role="form" onSubmit={this.handleSubmit}>
                 <div className="messages"></div>
                 <div className="row">
                     <div className="col-md-12 form-group">
@@ -145,9 +122,10 @@ var Form = React.createClass({
                         <textarea name="message" placeholder="Please enter your message*" className="form-control"
                                   required="required" value={this.state.message} onChange={this.handleMessage}></textarea>
                     </div>
-                    <div className="col-xs-3 form-group">
+                    <div className="col-xs-12 form-group">
                         <button className="btn btn-primary sharp outline" type="submit">Send Message</button>
                     </div>
+                    <div className="col-xs-6" id="after-form-submit"><i className="fa fa-check-circle"></i>Message sent successfully</div>
                     <div className="col-xs-12">
                         <strong>*</strong> These fields are required.
                     </div>
